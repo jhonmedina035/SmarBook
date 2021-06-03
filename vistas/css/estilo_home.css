@@ -1,0 +1,413 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+}
+
+body{
+    font-family: "Arila", Verdana;
+}
+
+
+/* cabecera*/
+
+header{
+    /*position fixed;
+    top:0;*/
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #2c3e50;
+    padding: 2px;
+    padding: 1% 1%;
+    color: #fff;
+}
+
+header .titulo{
+    display: inline-block;
+}
+
+nav{
+    margin-right: 40px;
+    float: right;
+}
+
+#buscar{
+    display: inline-block;
+    width: 20%;
+    margin-left:110px;   
+}
+
+#buscar input{
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+    border-style: none;
+    font-size: 17px;
+    text-align: center;
+}
+
+#buscar input:focus{
+    outline: none;
+}
+
+nav > ul > li{
+    list-style: none;
+    float: left;
+    position: relative;
+}
+
+nav ul li a{
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: bold;
+
+}
+nav ul li a samp{
+    font-size: 17px;
+}
+nav ul li a:hover{
+    background-color: #EFEFFB;
+    color: #000;
+}
+
+/* lista bajo solicitud de amistad*/
+#info-solicitud #nav-solicitud {
+    visibility :hidden;
+    width: 235px;
+    background-color: #fff;
+
+    top: 40px;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 1;
+}
+
+header nav #info-solicitud:hover #nav-solicitud{
+    visibility: visible;
+}
+#nav-solicitud li{
+    list-style: none;
+}
+
+#nav-solicitud li a{
+    color: #2c3e50;
+}
+
+#nav-solicitud li a:hover{
+    background-color: #2c3e50;
+    color: #fff;
+    transition: all;
+}
+
+#nav-solicitud::after{
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 7%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+}
+
+#solicitud-confirmar{
+    width:90%;
+}
+
+#solicitud-confirmar li{
+    display: inline-block;
+}
+
+/* info de notificaciones */
+
+#info-notificaciones #nav-notificaciones {
+    visibility: hidden;
+    width: 335px;
+    background-color: #fff;
+
+    top: 40px;
+    right: -150px;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 1;
+}
+
+header nav #info-notificaciones:hover #nav-notificaciones{
+    visibility: visible;
+}
+
+#nav-notificaciones li{
+    list-style: none;
+}
+
+#nav-notificaciones li a{
+    font-size: 17px;
+    color: #2c3e50;
+}
+
+#nav-notificaciones  li a:hover,#nav-notificaciones li a:hover p{
+    background-color: #2c3e50;
+    color: #fff;
+}
+#nav-notificaciones li a p{
+    font-size: 13px;
+    color: black;
+    font-weight: bold;
+}
+
+#nav-notificaciones::after{
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 48%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+}
+
+/* perfil */
+
+#perfil{
+    margin: 10px auto;
+    width: 90%;
+    overflow: hidden;
+    border-radius: 70px;
+}
+#perfil > ul li{
+    list-style: none;
+}
+
+#perfil > ul > li{
+    float: left;
+    box-sizing: border-box;
+    padding: 2% 3%;
+    width: 33%;
+}
+
+#perfil > ul > li > ul li{
+    list-style: none;
+    margin-top: 20px;
+    margin-left: 10px;
+} 
+#perfil #img{
+    width: 150px;
+    border-radius: 80px;
+}
+
+#perfil > ul li a{
+    
+    padding: 2% 3%;
+    background-color: #2c3e50;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#perfil > u li >samp{
+    padding: 3px;
+    background-color: #1caff6;
+    color: #fff;
+    margin-left: 10px;
+}
+
+
+/*lista de */
+
+#nav-perfil{
+    visibility: hidden ;
+    width: 135px;
+    background-color: #fff;
+
+    top :40px;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    
+    position: absolute;
+    z-index: 1;
+}
+
+#nav-perfil :hover{
+    visibility: visible;
+}
+
+#nav-perfil li{
+    list-style: none;
+}
+
+#nav-perfil li a{
+    color:#2c3e50;
+}
+
+#nav-perfil li a:hover{
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+#nav-perfil::after{
+    content:" ";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+}
+
+
+/* publicaciones */
+/*
+section{
+    display: inline-block;
+}
+*/
+
+.publicaciones{
+    max-width: 35%;
+    margin: auto;
+    background-color: #fff;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+
+section .publicaciones{
+    margin-top: 45px;
+}
+
+.publi-info-perfil{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 7px 10px 7px 10px;
+}
+
+.publicaciones .publi-img-perfil{
+    width: 30px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 10px;  
+
+}
+
+.publi-img-perfil{
+    width: 30px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.publicaciones img{
+    box-sizing: border-box;
+    width: 100%;
+}
+
+a.nombre-usuario{
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 18px;
+}
+.publi-thumb{
+    width: 100%;
+    margin: auto;
+   /* margin-bottom: 30px;
+    outline: 50px solid rgba(255, 255, 255, 0);
+    -webkit-box-shadow : 2px 2px 3px rgba(0,0,0,.8);
+    box-shadow: 2px 2px 3px rgba(0,0,0,.8);
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease; */
+}
+
+.publi-contenido{
+    margin: 5px 5px 10px 10px;
+    font-style: inherit;
+    font-size: 10px;
+    color: black;
+    font-weight: lighter;
+    font-family: 'proxima-nova','Helvetica Neue',Arial, Helvetica, sans-serif ;
+}
+
+.publicaciones .like{
+    padding: 5px;
+  /*  border-top: 1px solid blue;
+    border-bottom: 1px solid blue; */
+
+}
+.publicaciones .like a{
+    font-size: 17px;
+}
+.publicaciones .like a:hover{
+    text-decoration: underline;
+}
+
+.publi-contene-like{
+    border-top: 1px solid #ccc;
+    padding: 10px;
+}
+.publicaciones .comentario{
+    display: inline-block;
+}
+
+
+.publicaciones .comentario input, .subir #contenido{
+    padding: 10px;
+    border-style: none;
+    font-size: 17px;
+    width: 90%;
+}
+
+.publicaciones .publicaciones input:focus{
+    outline: none;
+}
+
+.comentario-nombre , #like{
+    margin-left: 10px;
+    margin-bottom: 7px;
+    color: #2c3e50;
+    font-size: 15px;
+    font-weight: bold;
+}
+.comentario-nombre .comentario{
+    font: inherit;
+    font-size: 12px;
+    color: black;
+    font-weight: lighter;
+    font-family: 'proxima-nova','Helvetica Neue' ,Arial, Helvetica, sans-serif;
+
+}
+
+
+/* buscar usuario */ 
+
+.resultado-busqueda{
+    width: 40%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.resultado-busqueda .usuarios{
+    background-color: #fff;
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
+    
+}

@@ -1,0 +1,388 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+
+body{
+    font-family: "Arila", Verdana;
+    background-color: rgb(174, 188, 206);   
+}
+.contenedor_header a{
+   text-decoration: none;
+   
+}
+
+header{   
+    top:0;
+    box-sizing: border-box;
+    background-color: #446996;
+    padding: 1px;
+    padding: 1% 1%;
+    color: rgb(192, 168, 168);         
+}
+
+
+.contenedor_header{
+    display: flex;
+    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto; 
+    width: 95%;
+}
+
+ ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+}
+
+.navegacion li {
+    display: inline-block;
+}
+
+.navegacion ul li a{
+    
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: rgb(253, 247, 247);
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.4s linear;
+}
+
+.navegacion ul li a:hover{
+    background-color: #ccc ;   
+}
+
+header img{
+    width: 170px;
+    height: 70px;
+    margin-left:5% ;
+}
+
+header input {
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    border-style: none;
+    font-size: 17px;
+    text-align: center;
+   
+  
+}
+nav samp{
+    font-size: 1.3rem;
+}
+
+.sup_menu {
+    display: none;
+    position: absolute;
+    text-align: center;
+    background-color:rgba(73, 123, 165, 0.8);
+    
+}
+
+.menu ul{
+    margin-left: -5%;
+}
+
+.menu-header  li:hover .sup_menu{
+    display: block;
+    
+}
+
+@media (max-width: 850px){
+    body{
+        background-color: rgb(231, 240, 231);
+        width: 100%;
+    }
+    .contenedor_header{
+        flex-direction: column;
+        align-items: center;    
+    }
+
+    .menu ul{
+       margin-left: -100px;
+    }
+
+    .navegacion ul li a{
+        font-size: 10px;
+    }
+    .navegacion samp{
+        font-size: 1rem;
+    }
+    
+}
+/*cuerpo publicaciones */
+   
+.publicaciones{
+    max-width: 45%;
+    margin: auto;
+    background-color: #fff;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;  
+}
+
+.publicaciones input{
+    width: 90%;
+    height: 40px;
+    margin-right: 10px;
+    padding: 5px 5px 5px 14px; 
+}
+
+.publicaciones form{
+    display: flex;
+    align-items:center
+}
+
+.boton-subir{
+    font-size: 3rem; 
+    position: relative;
+    width: 5%;
+    height: 45px;
+}
+
+.publi-img-perfil{
+    width: 95px;
+    height: 75px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    margin-right: 10px;   
+}
+
+.nombre_usuario{
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 25px;
+}
+
+.publi-thumb img{
+    width: 100%;
+}
+.publi-thumb video{
+    width: 100%;
+}
+
+.comentario-nombre , #like{
+
+    margin-left: 10px;
+    margin-bottom: 7px;
+    color: #2c3e50;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.publi-contenido{
+    margin: 5px 5px 10px 10px;
+    font-style: inherit;
+    font-size: 10px;
+    color: black;
+    font-weight: lighter;
+    font-family: 'proxima-nova','Helvetica Neue',Arial, Helvetica, sans-serif ;
+}
+
+.publicaciones .like{
+    padding: 5px;
+  /*  border-top: 1px solid blue;
+    border-bottom: 1px solid blue; */
+}
+
+.publi-contene-like a{
+    font-size: 35px;
+    text-decoration: none;
+    color: black;
+}
+
+
+.publi-contene-like{
+    border-top: 1px solid #ccc;
+    padding: 10px; 
+}
+
+.publi-contene-like input{
+    width: 100%;
+    margin-top: 10px;
+    
+}
+.publicaciones .comentario{
+    display: flex;
+}
+
+@media (max-width: 850px){
+    body{
+        background-color: rgb(231, 240, 231);
+        width: 100%;
+    }
+    .contenedor_header{
+        flex-direction: column;
+        align-items: center;    
+    }
+
+    .menu ul{
+       margin-left: -100px;
+    }
+
+    .navegacion ul li a{
+        font-size: 10px;
+    }
+    .navegacion samp{
+        font-size: 1rem;
+    }
+
+    .publicaciones{
+        max-width: 98%;
+    }
+
+    .publi-img-perfil{
+        width: 75px;
+        height: 55px;
+    }
+
+    .publicaciones input{
+        width: 80%;
+        height: 30px; 
+    }
+        
+} 
+
+/* perfil */
+
+#perfil{
+    margin: 10px auto;
+    width: 90%;
+    overflow: hidden;
+    border-radius: 70px;
+}
+#perfil > ul li{
+    list-style: none;
+}
+
+#perfil > ul > li{
+    float: left;
+    box-sizing: border-box;
+    padding: 2% 3%;
+    width: 33%;
+}
+
+#perfil > ul > li > ul li{
+    list-style: none;
+    margin-top: 20px;
+    margin-left: 10px;
+} 
+#perfil #img{
+    width: 150px;
+    border-radius: 80px;
+}
+
+#perfil > ul li a{
+    
+    padding: 2% 3%;
+    background-color: #2c3e50;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#perfil > ul li >samp{
+    padding: 3px;
+    background-color: #1caff6;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.resultado-busqueda{
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.resultado-busqueda .usuarios{
+    background-color: #fff;
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: right;   
+}
+
+.resultado-busqueda img{
+    width: 120px;
+    height:80px; 
+}
+
+.nombre_usuario a{
+    text-decoration: none;
+    color :black;
+    margin-left: 10px;  
+}
+
+.resultado-busqueda .no-resultados{
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+.editar_perfil{
+    width: 50%;
+    margin: auto;
+} 
+
+.editar_perfil .form_editar{
+    text-align: center;
+}
+
+.editar_perfil form{
+    display: flex;
+    flex-direction: column;
+}
+.editar_perfil input{
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.menuCSS3 ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.menuCSS3 a {
+    display: block;
+    padding: 0.5em;
+    background-color: #F9B53C;
+    text-decoration: none;
+    color: #191C26;
+    
+}
+.menuCSS3 a:hover {
+    background-color: #CC673B;
+}
+.menuCSS3 ul li ul {
+    display: none;
+}
+.menuCSS3 ul li a:hover + ul, .menuCSS3 ul li ul:hover {
+    display: block;
+}
+
+.titulo_curso{
+    text-align: center;
+}
+
+.prueba{
+   display: flex;
+   flex-direction: column;
+   margin-top: 1rem;
+   
+}
