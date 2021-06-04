@@ -41,7 +41,9 @@ verificar_session();
                                     <?php  foreach($soli as $solicitudes): ?>
                                         <li><a href="perfil.php?id_user=<?php echo $solicitudes[0]?>"><?php echo $solicitudes[1]; ?></a></li>
                                         <ul id="solicitud-confirmar">
-                                            <li><a href="../controlador/solicitud.php?id_amigo=<?php echo $solicitudes[0]?>&&accion=1" class="icon-checkmark"></a></li>
+                                            <li>
+                                            <a href="../controlador/solicitud.php?id_amigo=<?php echo $solicitudes[0]?>&&accion=1" class="icon-checkmark"></a>
+                                            </li>
                                             <li><a href="../controlador/solicitud.php?id_amigo=<?php echo $solicitudes[0]?>&&accion=2" class="icon-cross"></a></li>
                                         </ul>
                                     <?php endforeach; ?>

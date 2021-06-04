@@ -18,12 +18,13 @@ $cursos = Cursos :: mostrar_cursos($_SESSION['id_user']);
 if(isset($_POST['crear_contenido']) and !empty($_FILES) and !empty($_POST['contenido']))
 {
     $destino ='subidos/';
+    opendir($destino);
     $id_curso = $_POST['menu-curso']; 
     $contenido = $_POST['contenido'];
-    $video = $_FILES['archivo']['name'];
+    $video = $destino . basename($_FILES['archivo']['name']);
     $tmp = $_FILES['archivo']['tmp_name']; 
     move_uploaded_file($tmp,$destino);
-    //post :: agregar($_SESSION['id_user'],$contenido, $video, $id_curso);
+    post :: agregar($_SESSION['id_user'],$contenido, $video, $id_curso);
     header('location: home_2.php');
 }
 
@@ -74,10 +75,5 @@ if(isset($_POST['crear_contenido']) and !empty($_FILES) and !empty($_POST['conte
 
     </div>  
 </div>
-
-
-
-
-
 </body>
 </html>

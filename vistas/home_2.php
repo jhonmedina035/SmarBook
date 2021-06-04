@@ -17,7 +17,7 @@ if(isset($_POST['crear_contenido']) and !empty($_FILES) and !empty($_POST['conte
 
 
 $amigos = amigos::codigos_amigos($_SESSION['id_user']);
-$post = post::mostrarTodo(4);
+$post = post::mostrarTodo(1);
 
 if(isset($_POST['comentario']))
 {
@@ -29,11 +29,12 @@ if(isset($_POST['comentario']))
 }
 if(isset($_GET['mg']))
 {
+    echo $_GET['id_publicaciones'];
     mg::agregar($_GET['id_publicaciones'], $_SESSION['id_user']);
     notificaciones :: agregar(FALSE, $_GET['id_publicaciones'] ,$_SESSION['id_user']);  
 }
 
-require('publicaciones.php'); 
+require('publicacionesGeneral.php'); 
 
 ?>
 

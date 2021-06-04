@@ -23,13 +23,13 @@
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
-            <?php echo $posts['img'];?>
+           
             <div class="publi-contene-like">
-                        
-                <?php if(mg::verificar_mg($posts['id_publicaciones'], $_SESSION['id_user']) == 0): ?>   
-                    <a href = "<?php echo $_SERVER['PHP_SELF']?>?mg=1&&id_publicaciones=<?php echo $posts['id_publicaciones']?>" class="like icon-happy"></a>
+     
+                <?php if(count(mg::verificar_mg($posts['id_publicaciones'], $_SESSION['id_user'])) == 0): ?>  
+                    <a href = "<?php echo $_SERVER['PHP_SELF']?>?mg=1&&id_publicaciones=<?php echo $posts['id_publicaciones']?>" class="like icon-happy"></a> 
                 <?php else: ?> 
-                    <a href ="#" class="like icon-happy"></a>
+                    <a  class="like icon-happy2"></a>
                 <?php endif; ?>    
                 <a href = "<?php echo $_SERVER['PHP_SELF']?>" class="like icon-sad"></a>
                      
@@ -37,7 +37,6 @@
                     <input type="text" name="comentario" placeholder="Escribe tu comentario">
                     <input type="hidden" name="id_publicaciones" value="<?php echo $posts['id_publicaciones']?>">
                 </form>
-                
             </div>
         <?php endforeach;?>
     <?php endif;?>

@@ -20,7 +20,7 @@ if(isset($_POST['comentario']))
 {
     if(!empty($_POST['comentario']))
     {
-        comentarios::agregar($_POST['comentario'], $_SESSION['id_user'], $_POST['id_user']);
+        comentarios::agregar($_POST['comentario'], $_SESSION['id_user'], $_GET['id_user']);
         notificaciones :: agregar(1, $_GET['id_publicacion'] ,$_SESSION['id_user']);
         header('location: home_2.php');
     }
@@ -54,24 +54,25 @@ if(isset($_GET['mg']))
                             else echo 0;      
                         ?>
                     </samp>
-                </li> 
-                
+                </li>   
                 <li>Cursos
                     <samp>
                         <?php 
                             //cambiar a cursos 
-                            if(!empty(amigos::cantidad_amigos($_GET['id_user'])))
-                                echo amigos::cantidad_amigos($_GET['id_user'])[0][0];
+                            if(!empty(cursos::cantidad_cursos($_GET['id_user'])))
+                                echo cursos::cantidad_cursos($_GET['id_user'])[0][0];
                             else echo 0;      
                         ?>
                     </samp>
                 </li>  
             </ul>
         </li>
+
+       
             <?php if($_GET['id_user'] != $_SESSION['id_user']):?>
                 <?php if(empty($verificar_amigos)):?>
                     <li><a href="perfil.php?id_user=<?php echo $_GET['id_user']?>&&agregar=<?php echo $_GET['id_user'];?>">Agregar</a></li>
-                <?php elseif($verificar_amigos[0] != 0):  ?>    
+                <?php elseif($verificar_amigos[0][3] != 0):  ?>    
                     <li><a href="#">Amigos</a></li>
                 <?php else: ?>    
                     <li><a href="#">Solicitud enviadas</a></li>
@@ -81,7 +82,6 @@ if(isset($_GET['mg']))
             <?php endif; ?>
     </ul>
 </div>
-
 <?php require('publicaciones.php'); ?>
 
 </body>

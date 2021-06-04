@@ -31,6 +31,17 @@ class Cursos{
         return $nfilas;
     }
 
+    function cantidad_cursos($id_user)
+    {
+        $con = conexion();
+        $instruccion =("SELECT count(*)from cursos where(id_user = $id_user) and id_estado = 1");
+        $consulta = mysqli_query($con,$instruccion)
+        or die ("Fallo en la consulta solicitudes");
+
+        $resultado = $consulta->fetch_all(); 
+        return $resultado;  
+    }   
+
 
 }
 
@@ -202,7 +213,6 @@ class mg
     {
       $con = conexion ();
       $instruccion =("SELECT id_like from mg where id_publicacion = $id_publicaciones and id_user = $id_user");
-
       $consulta = mysqli_query($con,$instruccion)
       or die ("Fallo en la consulta verificar me gusta ");                        
       $resultado =$consulta->fetch_all();
@@ -305,8 +315,8 @@ class amigos
 
     function eliminar_solicitud($id_amigo)
     {
-        $con = conexion("rood","");
-        $instruccion =("update amigos set status = 1 where id_user = :id_amigo");
+        $con = conexion();
+        $instruccion =("DELETE FROM amigos where id_user = $id_amigo");
         $consulta = mysqli_query($con,$instruccion)
         or die ("Fallo en la consulta solicitudes");
          
@@ -321,7 +331,18 @@ class amigos
 
         $resultado = $consulta->fetch_all(); 
         return $resultado;  
-       }   
+    } 
+    
+    function cantidad_amigos1($id_user)
+    {
+        $con = conexion();
+        $instruccion =("SELECT * from amigos where(user_enviador =$id_user or user_receptor =$id_user) and status = 1");
+        $consulta = mysqli_query($con,$instruccion)
+        or die ("Fallo en la consulta solicitudes");
+
+        $resultado = $consulta->fetch_all(); 
+        return $resultado;  
+    }   
 }
 
 ?>
