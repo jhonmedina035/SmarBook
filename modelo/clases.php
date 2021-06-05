@@ -189,19 +189,39 @@ class comentarios{
 
 class mg
 {
-    function agregar($id_publicaciones, $id_user)
+    function agregarlike($id_publicaciones, $id_user)
     {
-      $con = conexion ();
-      $instruccion =("INSERT into mg(id_like, id_publicacion ,id_user) values(null, $id_publicaciones, $id_user)");
+      $con = conexion();
+      $instruccion =("INSERT into mg(id_like, id_publicacion ,id_user, tipo) values(null, $id_publicaciones, $id_user,1)");
       $consulta = mysqli_query($con,$instruccion)
       or die ("Fallo en la consulta agregar me gusta "); 
      
     }
 
-    function mostrar($id_publicasiones)
+    function agregarDislike($id_publicaciones, $id_user)
     {
       $con = conexion ();
-      $instruccion = ("SELECT count(*) from mg where id_publicacion = '$id_publicasiones'");
+      $instruccion =("INSERT into mg(id_like, id_publicacion ,id_user, tipo) values(null, $id_publicaciones, $id_user,0)");
+      $consulta = mysqli_query($con,$instruccion)
+      or die ("Fallo en la consulta agregar me gusta "); 
+     
+    }
+
+    function mostrarlikes($id_publicasiones)
+    {
+      $con = conexion ();
+      $instruccion = ("SELECT count(*) from mg where id_publicacion = '$id_publicasiones' and tipo = 1");
+      
+      $consulta = mysqli_query($con,$instruccion)
+      or die ("Fallo en la consulta post mostrar");                        
+      $resultado =$consulta->fetch_all();
+      return $resultado; 
+    }
+
+    function mostrarDislikes($id_publicasiones)
+    {
+      $con = conexion ();
+      $instruccion = ("SELECT count(*) from mg where id_publicacion = '$id_publicasiones' and tipo = 0");
       
       $consulta = mysqli_query($con,$instruccion)
       or die ("Fallo en la consulta post mostrar");                        
@@ -248,9 +268,9 @@ class notificaciones
 
     }
 
-    function vistas($id_publicasiones){
+    function vistas($id_publicaciones){
         $con = conexion();
-        $instruccion =("UPDATE notificaciones set visto = 1  where id_not = $id_publicasiones");
+        $instruccion =("UPDATE notificaciones set visto = 1  where id_not = $id_publicaciones");
         $consulta = mysqli_query($con,$instruccion)
         or die ("Fallo en la consulta mostrar vistas");
         
@@ -310,16 +330,14 @@ class amigos
         $instruccion = ("UPDATE amigos set status = 1 where id_amigo = $id_amigo");
         $consulta = mysqli_query($con,$instruccion)
         or die ("Fallo en la Aceptar solicitudes");
-        
     }
 
     function eliminar_solicitud($id_amigo)
     {
         $con = conexion();
-        $instruccion =("DELETE FROM amigos where id_user = $id_amigo");
+        $instruccion =("DELETE FROM amigos where id_amigo = $id_amigo");
         $consulta = mysqli_query($con,$instruccion)
-        or die ("Fallo en la consulta solicitudes");
-         
+        or die ("Fallo en la consulta solicitudes");  
     }
 
     function cantidad_amigos($id_user)

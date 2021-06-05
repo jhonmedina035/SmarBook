@@ -20,21 +20,25 @@ if(isset($_POST['comentario']))
 {
     if(!empty($_POST['comentario']))
     {
-        comentarios::agregar($_POST['comentario'], $_SESSION['id_user'], $_GET['id_user']);
-        notificaciones :: agregar(1, $_GET['id_publicacion'] ,$_SESSION['id_user']);
-        header('location: home_2.php');
+        comentarios::agregar($_POST['comentario'], $_SESSION['id_user'], $_POST['id_publicaciones']);
+        notificaciones :: agregar(1, $_POST['id_publicaciones'] ,$_SESSION['id_user']); 
+    }
+}
+// validar accion si es like o dislike 
+if(isset($_GET['mg']))
+{
+    if($_GET['accion']==1) // caso de like
+    {
+        mg::agregarlike($_GET['id_publicaciones'], $_SESSION['id_user']);//agregar like a la tabla 
+        notificaciones :: agregar(FALSE, $_GET['id_publicaciones'] ,$_SESSION['id_user']);// agregar la notificacion 
+        header(lo)
+    }elseif($_GET['accion']==0){ // caso dislike
+        mg::agregarDislike($_GET['id_publicaciones'], $_SESSION['id_user']); // agregar disLike
+        // No notifico negativamente por cuestion de moral 
     }
 }
 
-if(isset($_GET['mg']))
-{
-    mg::agregar($_GET['id_publicacion'], $_SESSION['id_user']);
-    notificaciones :: agregar(false, $_POST['id_publicacion'] ,$_SESSION['id_user']);
-    header('location: home_2.php');
-}
-
 ?>
-
 <div id="perfil">
     <ul class="contenedor_perfil">
         <li><img src="<?php echo $row['foto_perfil'] ?>" alt="" id="img"></li>

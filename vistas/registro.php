@@ -36,6 +36,14 @@ $error ="";
                     /*enviar el arreglo a la funcion registrar que se encuenta en las clases*/
                     usuarios :: Registrar($datos);
 
+                    ?>
+                    <script>//mostrar al usuario mensaje y direccionar 
+                        window.alert('Te has registrado con exito ya puedes iniciar');
+                        window.location='login.php';
+                    </script>
+                    <?php
+                
+
                 }else
                 {
                    $error .="El usuario ya existe"; 

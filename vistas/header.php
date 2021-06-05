@@ -20,7 +20,6 @@ verificar_session();
     <link rel="stylesheet" href="logo/iconos/style.css">
 </head>
     <body>
-    
         <header class="header">
             <div class="contenedor_header">
             
@@ -37,20 +36,22 @@ verificar_session();
                         <?php $soli = amigos::solicitudes($_SESSION['id_user']);?>
                             <a href="#"><samp class="icon-users"></samp> <samp><?php if(count($soli) > 0) echo count($soli) ?></samp></a>
                             <?php if(count($soli) > 0): ?>
+                                
                                 <ul class="sup_menu">
                                     <?php  foreach($soli as $solicitudes): ?>
                                         <li><a href="perfil.php?id_user=<?php echo $solicitudes[0]?>"><?php echo $solicitudes[1]; ?></a></li>
                                         <ul id="solicitud-confirmar">
                                             <li>
-                                            <a href="../controlador/solicitud.php?id_amigo=<?php echo $solicitudes[0]?>&&accion=1" class="icon-checkmark"></a>
+                                            <a href="../controlador/solicitud.php?id_amigo=<?php echo $solicitudes[2]?>&&accion=1" class="icon-checkmark"></a>
                                             </li>
-                                            <li><a href="../controlador/solicitud.php?id_amigo=<?php echo $solicitudes[0]?>&&accion=2" class="icon-cross"></a></li>
+                                            <li>
+                                            <a href="../controlador/solicitud.php?id_amigo=<?php echo $solicitudes[2]?>&&accion=2" class="icon-cross"></a>
+                                            </li>
                                         </ul>
                                     <?php endforeach; ?>
                                 </ul>
                            <?php endif;?> 
                         </li>
-
                         <li id="innfo-notificaciones">
                             <?php $not = notificaciones::mostrar($_SESSION['id_user']) ?>
                             <a href="#"><samp class="icon-bell"></samp> <samp><?php if(!empty($not)) echo count($not)?></samp></a>
@@ -58,7 +59,7 @@ verificar_session();
                             <ul class="sup_menu">
                                 <li>
                                 <?php foreach($not as $noti): ?>   
-                                    <a href="post.php?id_publicacion=<?php echo $noti[2];?>">
+                                    <a href="post.php?id_publicacion=<?php echo $noti[4]?>&&id_not=<?php echo $noti[2]; ?>">
                                     <?php  echo $noti[1]?>
                                     <?php if($noti[3] == 0): ?>
                                         <p>Le gusta tu publicacion</p>

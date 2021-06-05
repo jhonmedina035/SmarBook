@@ -127,7 +127,7 @@ nav samp{
     max-width: 45%;
     margin: auto;
     background-color: #fff;
-    margin-top: 15px;
+    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 10px;  
 }
@@ -168,8 +168,14 @@ nav samp{
 .publi-thumb img{
     width: 100%;
 }
-.publi-thumb video{
+video{
     width: 100%;
+    margin: auto;
+    display: block;
+}
+.link_mostrar{
+  
+    display: flex;
 }
 
 .comentario-nombre , #like{
@@ -236,6 +242,7 @@ nav samp{
     }
     .navegacion samp{
         font-size: 1rem;
+       
     }
 
     .publicaciones{
@@ -383,6 +390,6 @@ nav samp{
 .prueba{
    display: flex;
    flex-direction: column;
-   margin-top: 1rem;
-   
+   margin-top: 1rem;   
 }
+

@@ -23,7 +23,7 @@ if(isset($_POST['crear_contenido']) and !empty($_FILES) and !empty($_POST['conte
     $contenido = $_POST['contenido'];
     $video = $destino . basename($_FILES['archivo']['name']);
     $tmp = $_FILES['archivo']['tmp_name']; 
-    move_uploaded_file($tmp,$destino);
+    move_uploaded_file($tmp,$video);
     post :: agregar($_SESSION['id_user'],$contenido, $video, $id_curso);
     header('location: home_2.php');
 }
