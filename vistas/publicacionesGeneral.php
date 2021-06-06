@@ -20,7 +20,6 @@ if(isset($_GET['mg']))
     }
 }
 
-
 $amigos = amigos::cantidad_amigos1($_SESSION['id_user']);
 
 $misAmigos[] = $_SESSION['id_user'];
@@ -35,8 +34,9 @@ foreach ($amigos as $a) {
 }
 
 ?>
-
 <div class="publicaciones">
+    <?php foreach ($misAmigos as $mia):?>
+    <?php $post = post::mostrarTodo($mia)?>
     <?php if(!empty($post)):?>
         <?php foreach($post as $posts): ?>
             <div class="publi-info-perfil ">
@@ -81,5 +81,6 @@ foreach ($amigos as $a) {
             </div>
         <?php endforeach;?>
     <?php endif;?>
+<?php endforeach; ?>
 </div>
 </Main> 

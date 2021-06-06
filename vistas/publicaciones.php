@@ -1,9 +1,4 @@
 <?php
-if(isset($_GET['agregar']))
-{
-    amigos::agregar($_SESSION['id_user'], $_GET['id_user']);
-    header('location: perfil.php?id_user='.$_GET['id_user']);
-}
 
 if(isset($_POST['comentario']))
 {

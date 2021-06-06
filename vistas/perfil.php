@@ -8,6 +8,7 @@ if(isset($_GET['id_user']))
     $verificar_amigos = amigos::verificar($_SESSION['id_user'], $_GET['id_user']);
     $post = post::post_por_usuario($_GET['id_user']);
     $row = mysqli_fetch_array($usuario, MYSQLI_BOTH);
+    
 }
 
 if(isset($_GET['agregar']))
@@ -24,19 +25,7 @@ if(isset($_POST['comentario']))
         notificaciones :: agregar(1, $_POST['id_publicaciones'] ,$_SESSION['id_user']); 
     }
 }
-// validar accion si es like o dislike 
-if(isset($_GET['mg']))
-{
-    if($_GET['accion']==1) // caso de like
-    {
-        mg::agregarlike($_GET['id_publicaciones'], $_SESSION['id_user']);//agregar like a la tabla 
-        notificaciones :: agregar(FALSE, $_GET['id_publicaciones'] ,$_SESSION['id_user']);// agregar la notificacion 
-        header(lo)
-    }elseif($_GET['accion']==0){ // caso dislike
-        mg::agregarDislike($_GET['id_publicaciones'], $_SESSION['id_user']); // agregar disLike
-        // No notifico negativamente por cuestion de moral 
-    }
-}
+
 
 ?>
 <div id="perfil">
@@ -82,7 +71,8 @@ if(isset($_GET['mg']))
                     <li><a href="#">Solicitud enviadas</a></li>
                 <?php endif; ?>    
             <?php else:?>
-                <li><a href="editar_perfil.php">Editar</a></li>    
+                <li><a href="editar_perfil.php">Editar</a></li>
+                <li><a href="buscar_amigos.php">Mis amigos</a></li>    
             <?php endif; ?>
     </ul>
 </div>

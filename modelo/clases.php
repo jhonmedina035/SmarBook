@@ -40,9 +40,8 @@ class Cursos{
 
         $resultado = $consulta->fetch_all(); 
         return $resultado;  
-    }   
-
-
+    }
+    
 }
 
 class usuarios{
@@ -357,10 +356,15 @@ class amigos
         $instruccion =("SELECT * from amigos where(user_enviador =$id_user or user_receptor =$id_user) and status = 1");
         $consulta = mysqli_query($con,$instruccion)
         or die ("Fallo en la consulta solicitudes");
-
         $resultado = $consulta->fetch_all(); 
         return $resultado;  
-    }   
+    }
+    
+    function mostrar_amigos($id_amigo)
+    {
+        
+
+    }
 }
 
 ?>

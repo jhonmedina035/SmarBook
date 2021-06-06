@@ -5,7 +5,7 @@ if(isset($_GET['busqueda']))
 {
     $nombre = $_GET['busqueda'];
     $con = conexion();
-    $instruccion =("SELECT * FROM usuarios WHERE nombre like '$nombre' ");
+    $instruccion =("SELECT * FROM usuarios WHERE nombre like '$nombre'");
     $consulta = mysqli_query($con,$instruccion)
     or die ("Fallo en la consulta verificar buscar");
     $nfilas =$consulta->fetch_all();    
@@ -29,4 +29,4 @@ if(isset($_GET['busqueda']))
     <?php endif; ?>    
 </div>
 </body>
-</htmla>
+</html>

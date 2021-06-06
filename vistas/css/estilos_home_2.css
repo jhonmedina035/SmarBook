@@ -5,7 +5,9 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
-
+.icono{
+    color: rgb(253, 247, 247);
+}
 
 body{
     font-family: "Arila", Verdana;

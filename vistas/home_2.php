@@ -14,11 +14,6 @@ if(isset($_POST['crear_contenido']) and !empty($_FILES) and !empty($_POST['conte
     move_uploaded_file($tmp,$img);
     header('location: home_2.php');
 }
-
-$amigos = amigos::codigos_amigos($_SESSION['id_user']);
-$post = post::mostrarTodo(1);
-
-
 require('publicacionesGeneral.php'); 
 
 ?>

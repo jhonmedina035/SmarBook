@@ -26,7 +26,9 @@ verificar_session();
                 <a href=""> <img class="logo" src="logo/logo2.png" alt=""></a>
                 
                 <form action="buscar.php">
-                    <input type="text" name="busqueda" placeholder="Buscar amigos">
+                   
+                    <input type="text" name="busqueda" placeholder="Buscar amigos"> 
+                    <a class="icon-search icono"></a>
                 </form> 
                 
                 <nav class="navegacion">
