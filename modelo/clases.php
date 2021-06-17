@@ -41,6 +41,17 @@ class Cursos{
         $resultado = $consulta->fetch_all(); 
         return $resultado;  
     }
+
+    function contenido_por_id_curso($id_curso)
+    {
+        
+        $con = conexion();
+        $instruccion =("SELECT * FROM publicaciones WHERE id_cursos = $id_curso");
+        $consulta = mysqli_query($con,$instruccion)
+        or die ("Fallo en la consulta mostrar categorias");
+        $nfilas = $consulta ;
+        return $nfilas;
+    }
     
 }
 
@@ -362,7 +373,7 @@ class amigos
     
     function mostrar_amigos($id_amigo)
     {
-        
+
 
     }
 }

@@ -15,7 +15,7 @@
     
         }catch(PDOException $e){
           echo ("Error :". $e->getMessage());
-          echo("no coencto");  
+          echo("no conecto");  
         }
 
     }

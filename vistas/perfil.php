@@ -8,7 +8,7 @@ if(isset($_GET['id_user']))
     $verificar_amigos = amigos::verificar($_SESSION['id_user'], $_GET['id_user']);
     $post = post::post_por_usuario($_GET['id_user']);
     $row = mysqli_fetch_array($usuario, MYSQLI_BOTH);
-    
+
 }
 
 if(isset($_GET['agregar']))
@@ -28,10 +28,13 @@ if(isset($_POST['comentario']))
 
 
 ?>
-<div id="perfil">
-    <ul class="contenedor_perfil">
+
+<div id="perfil"> 
+    
+    <ul class="contenedor_perfil">   
         <li><img src="<?php echo $row['foto_perfil'] ?>" alt="" id="img"></li>
         <li>
+            <h1 class="no-resultados"> Perfil</h1>
             <H3><?php echo $row['nombre']?></H3>
             <ul>
                 <li>correo <samp> <?php echo $row['correo'] ?> </samp></li>
