@@ -3,7 +3,6 @@
 require('header.php');
 require('subir.php');
 
-
 if(isset($_POST['crear_contenido']) and !empty($_FILES) and !empty($_POST['contenido']))
 {
     $destino ='subidos/';

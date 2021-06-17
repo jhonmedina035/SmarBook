@@ -19,7 +19,7 @@ if(isset($_GET['mg']))
         // No notifico negativamente por cuestion de moral 
     }
 }
-
+// cambiar nombre 
 $amigos = amigos::cantidad_amigos1($_SESSION['id_user']);
 
 $misAmigos[] = $_SESSION['id_user'];

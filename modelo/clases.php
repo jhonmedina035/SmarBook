@@ -1,4 +1,6 @@
 <?php
+
+
 class Cursos{
 
     function agregar($nombre, $categoria, $id_user)
@@ -77,7 +79,7 @@ class usuarios{
         $instruccion ="INSERT INTO usuarios(id_user,foto_perfil,nombre,usuario,clave,ciudad,profesion,edad,rol,id_estado,correo) 
                        VALUES (null,'$foto_perfil','$nombre','$usuario','$clave', '$ciudad', '$profesion','$edad','$rol','$estado','$correo')";
         $consulta = mysqli_query($con,$instruccion)
-        or die ("Fallo registrar un usuario");
+        or die ("Fallo registrar un usuario ");
         
     }
 
@@ -370,6 +372,7 @@ class amigos
         $resultado = $consulta->fetch_all(); 
         return $resultado;  
     }
+    
     
     function mostrar_amigos($id_amigo)
     {
