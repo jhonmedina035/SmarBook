@@ -1,6 +1,8 @@
 <?php 
 require('../controlador/funciones.php');
 require('../modelo/clases.php');
+
+
 $error ="";
 
     if(isset($_POST['registrar']))
@@ -30,6 +32,28 @@ $error ="";
 
             if(strpos($datos[1], " " ) == false)
             {
+
+                if(empty(usuarios::verificarCorreo($datos[6])))
+                {
+                              
+                }
+                else
+ 
+                { 
+                       ?>
+                       <html> 
+                       <body>
+                       
+                       <!--<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                       <script src="js/sweetAlert.js">mostrarAlerta();</script> -->
+                       <script> mostrarAlerta('error','Error','nnue')</script>
+                       </body>
+                       </html>
+                       <?php 
+                 
+                      //require('js/sweetAlert.js');
+                }
+
                 /*Validar que el usario no este*/
                 if(empty(usuarios :: verificar($datos[1])))
                 {
@@ -37,6 +61,7 @@ $error ="";
                     usuarios :: Registrar($datos);
 
                     ?>
+                    
                     <script>//mostrar al usuario mensaje y direccionar 
                         window.alert('Te has registrado con exito ya puedes iniciar');
                         window.location='login.php';
@@ -66,6 +91,7 @@ $error ="";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
     <link rel="stylesheet" href="css/estilo_login.css">
+    
 </head>
 <body>
     <form class="formulario" action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
@@ -121,6 +147,7 @@ $error ="";
             <?php endif;?>
             <p><a class="link" href="index.php"> regresar </a></p>
         </div>
-    </form>    
+    </form>
+        
 </body>
 </html>

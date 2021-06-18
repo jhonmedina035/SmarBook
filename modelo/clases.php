@@ -3,7 +3,7 @@
 
 class Cursos{
 
-    function agregar($nombre, $categoria, $id_user)
+    public static function agregar($nombre, $categoria, $id_user)
     {
         $con = conexion();
         $instruccion =("INSERT INTO `cursos`(`id_cursos`, `nombre`, `id_user`, `id_categoria`, `id_estado`) 
@@ -13,7 +13,7 @@ class Cursos{
        
     }
     
-    function mostrar_categoria()
+    public static function mostrar_categoria()
     {
         $con = conexion();
         $instruccion =("SELECT * FROM categorias ");
@@ -23,7 +23,7 @@ class Cursos{
         return $nfilas;
     }
 
-    function mostrar_cursos($id_user)
+    public static function mostrar_cursos($id_user)
     {
         $con = conexion();
         $instruccion =("SELECT * FROM cursos where id_user = $id_user");
@@ -33,7 +33,7 @@ class Cursos{
         return $nfilas;
     }
 
-    function cantidad_cursos($id_user)
+    public static function cantidad_cursos($id_user)
     {
         $con = conexion();
         $instruccion =("SELECT count(*)from cursos where(id_user = $id_user) and id_estado = 1");
@@ -44,7 +44,7 @@ class Cursos{
         return $resultado;  
     }
 
-    function contenido_por_id_curso($id_curso)
+    public static function contenido_por_id_curso($id_curso)
     {
         
         $con = conexion();
@@ -59,7 +59,7 @@ class Cursos{
 
 class usuarios{
 
-    function Registrar($datos)
+    public static function Registrar($datos)
     {
         // extraer los datos de un arreglo a las variables 
         $con = conexion();
@@ -83,7 +83,7 @@ class usuarios{
         
     }
 
-    function verificar($usuario)
+    public static function verificar($usuario)
     {
         $con = conexion();
         $instruccion =("SELECT * FROM usuarios WHERE usuario = '$usuario'");
@@ -93,7 +93,17 @@ class usuarios{
         return $nfilas;
     } 
 
-    function editar($id_user,$datos)
+    public static function verificarCorreo($lola)
+    {
+        $con = conexion();
+        $instruccion =("SELECT * FROM usuarios WHERE correo = '$lola'");
+        $consulta = mysqli_query($con,$instruccion)
+        or die ("Fallo en la consulta verificar");
+        $nfilas =mysqli_fetch_array($consulta);
+        return $nfilas;
+    } 
+
+    public static function editar($id_user,$datos)
     {
         $con = conexion();
        
@@ -113,7 +123,7 @@ class usuarios{
 
     }
     
-    function usuario_por_codigo($id_user)
+    public static function usuario_por_codigo($id_user)
     {
         $con = conexion();
         $instruccion=("SELECT * from usuarios where id_user = $id_user");
@@ -126,7 +136,7 @@ class usuarios{
 
 class post{
 
-    function agregar($id_user, $contenido, $img, $id_curso)
+    public static function agregar($id_user, $contenido, $img, $id_curso)
     {
         $con = conexion();
         $instruccion =("INSERT into publicaciones(id_publicaciones,contenido,img,id_user,id_estado,id_cursos)
@@ -136,7 +146,7 @@ class post{
         
     }
 
-    function post_por_usuario($id_user)
+    public static function post_por_usuario($id_user)
     {
         $con = conexion();
         $instruccion =("SELECT  U.id_user, U.nombre, U.foto_perfil, P.id_publicaciones, P.contenido, P.img
@@ -148,7 +158,7 @@ class post{
         $resultado =$consulta;
         return $resultado;
     }
-    function mostrarTodo($amigos)
+    public static function mostrarTodo($amigos)
     {
         $con = conexion();
         $instruccion =("SELECT U.id_user, U.nombre, U.foto_perfil, P.id_publicaciones, P.contenido, P.img
@@ -161,7 +171,7 @@ class post{
         return $resultado;  
     }
 
-    function mostrar_por_codigo_post($id_publicasiones)
+    public static function mostrar_por_codigo_post($id_publicasiones)
     {
         $con = conexion();
         $instruccion =("SELECT U.id_user, U.nombre, U.foto_perfil, P.id_publicaciones, P.contenido, P.img
@@ -177,7 +187,8 @@ class post{
 }
 
 class comentarios{
-    function agregar($comentario, $id_user, $id_publicaciones)
+
+    public static function agregar($comentario, $id_user, $id_publicaciones)
     {
         echo( $id_publicaciones);
         $con = conexion();
@@ -187,7 +198,7 @@ class comentarios{
         or die ("Fallo en la consulta post agregar comentario");    
     }
 
-    function mostrar($id_publicaciones)
+    public static function mostrar($id_publicaciones)
     {
         $con = conexion();
         $instruccion=("SELECT U.nombre , C.comentario from usuarios U inner join  
@@ -201,7 +212,7 @@ class comentarios{
 
 class mg
 {
-    function agregarlike($id_publicaciones, $id_user)
+    public static function agregarlike($id_publicaciones, $id_user)
     {
       $con = conexion();
       $instruccion =("INSERT into mg(id_like, id_publicacion ,id_user, tipo) values(null, $id_publicaciones, $id_user,1)");
@@ -210,7 +221,7 @@ class mg
      
     }
 
-    function agregarDislike($id_publicaciones, $id_user)
+    public static function agregarDislike($id_publicaciones, $id_user)
     {
       $con = conexion ();
       $instruccion =("INSERT into mg(id_like, id_publicacion ,id_user, tipo) values(null, $id_publicaciones, $id_user,0)");
@@ -219,7 +230,7 @@ class mg
      
     }
 
-    function mostrarlikes($id_publicasiones)
+    public static function mostrarlikes($id_publicasiones)
     {
       $con = conexion ();
       $instruccion = ("SELECT count(*) from mg where id_publicacion = '$id_publicasiones' and tipo = 1");
@@ -230,7 +241,7 @@ class mg
       return $resultado; 
     }
 
-    function mostrarDislikes($id_publicasiones)
+    public static function mostrarDislikes($id_publicasiones)
     {
       $con = conexion ();
       $instruccion = ("SELECT count(*) from mg where id_publicacion = '$id_publicasiones' and tipo = 0");
@@ -241,7 +252,7 @@ class mg
       return $resultado; 
     }
 
-    function verificar_mg($id_publicaciones, $id_user)
+    public static function verificar_mg($id_publicaciones, $id_user)
     {
       $con = conexion ();
       $instruccion =("SELECT id_like from mg where id_publicacion = $id_publicaciones and id_user = $id_user");
@@ -255,7 +266,7 @@ class mg
 
 class notificaciones
 {
-    function agregar($accion, $id_publicasiones,$id_user)
+    public static function agregar($accion, $id_publicasiones,$id_user)
     {
         $con = conexion ();
         $instruccion = ("INSERT into notificaciones(id_not, accion, visto, id_publicacion, id_user) 
@@ -266,7 +277,7 @@ class notificaciones
 
     }
 
-    function mostrar($id_user)
+    public static function mostrar($id_user)
     {
         $con = conexion();
         $instruccion =("SELECT U.id_user, U.nombre, N.id_not , N.accion, N.id_publicacion
@@ -280,19 +291,18 @@ class notificaciones
 
     }
 
-    function vistas($id_publicaciones){
+    public static function vistas($id_publicaciones){
         $con = conexion();
         $instruccion =("UPDATE notificaciones set visto = 1  where id_not = $id_publicaciones");
         $consulta = mysqli_query($con,$instruccion)
         or die ("Fallo en la consulta mostrar vistas");
         
     }
-
 }
 
 class amigos
 {
-    function agregar($user_enviador,$user_receptor)
+    public static function agregar($user_enviador,$user_receptor)
     {
         $con = conexion();
         $instruccion =("INSERT into amigos(id_amigo, user_enviador, user_receptor,status,solicitud) 
@@ -303,7 +313,7 @@ class amigos
                    
     }
 
-    function verificar($user_enviador,$user_receptor)
+    public static function verificar($user_enviador,$user_receptor)
     {
         $con = conexion();
         $instruccion = ("SELECT * from amigos where (user_enviador = $user_enviador and user_receptor =
@@ -313,7 +323,7 @@ class amigos
         $resultado =$consulta->fetch_all();
         return $resultado;     
     }
-    function codigos_amigos($id_user)
+    public static function codigos_amigos($id_user)
     {
         $con = conexion();
         $instruccion =("SELECT GROUP_CONCAT(user_enviador,',',user_receptor) as amigos from amigos
@@ -324,7 +334,7 @@ class amigos
         return $resultado;  
     }
 
-    function solicitudes($id_user)
+    public static function solicitudes($id_user)
     {
         $con = conexion();
         $instruccion = ("SELECT U.id_user, U.nombre, A.id_amigo FROM usuarios U inner join amigos A on 
@@ -336,7 +346,7 @@ class amigos
         return $resultado;  
     }
 
-    function aceptar($id_amigo)
+    public static function aceptar($id_amigo)
     {
         $con = conexion();
         $instruccion = ("UPDATE amigos set status = 1 where id_amigo = $id_amigo");
@@ -344,7 +354,7 @@ class amigos
         or die ("Fallo en la Aceptar solicitudes");
     }
 
-    function eliminar_solicitud($id_amigo)
+    public static function eliminar_solicitud($id_amigo)
     {
         $con = conexion();
         $instruccion =("DELETE FROM amigos where id_amigo = $id_amigo");
@@ -352,7 +362,7 @@ class amigos
         or die ("Fallo en la consulta solicitudes");  
     }
 
-    function cantidad_amigos($id_user)
+    public static function cantidad_amigos($id_user)
     {
         $con = conexion();
         $instruccion =("SELECT count(*)from amigos where(user_enviador =$id_user or user_receptor =$id_user) and status = 1");
@@ -363,7 +373,7 @@ class amigos
         return $resultado;  
     } 
     
-    function cantidad_amigos1($id_user)
+    public static function cantidad_amigos1($id_user)
     {
         $con = conexion();
         $instruccion =("SELECT * from amigos where(user_enviador =$id_user or user_receptor =$id_user) and status = 1");

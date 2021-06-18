@@ -18,6 +18,8 @@ verificar_session();
     <link rel="stylesheet" href="css/estilo_home9.css">
     <link rel="stylesheet" href="css/estilos_home_2.css">
     <link rel="stylesheet" href="logo/iconos/style.css">
+    
+    
 </head>
     <body>
         <header class="header">
