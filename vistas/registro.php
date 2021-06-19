@@ -1,10 +1,12 @@
 <?php 
 require('../controlador/funciones.php');
 require('../modelo/clases.php');
+require('alerta.php');
 $patron_texto = "/^[a-zA-ZáéíóúÁÉÍÓÚñäëïöüÄËÏÖÜàèìòùÀÈÌÒÙ\s]+$/";
 
-
-//$error ="";
+// ejecuta la funcion javaScript y envia los parametros 
+    
+     //echo "<script> mostrarAlerta('error','Error','cabeza de bola ');</script>";
 
     if(isset($_POST['registrar']))
     {
@@ -72,15 +74,7 @@ $patron_texto = "/^[a-zA-ZáéíóúÁÉÍÓÚñäëïöüÄËÏÖÜàèìòùÀ
             <?php
     
         }
-
-
-        
-    }
-
-
-        
-       
-    
+    } 
 ?>
 
 <!DOCTYPE html>
@@ -91,6 +85,7 @@ $patron_texto = "/^[a-zA-ZáéíóúÁÉÍÓÚñäëïöüÄËÏÖÜàèìòùÀ
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
     <link rel="stylesheet" href="css/estilo_login.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
     
 </head>
 <body>

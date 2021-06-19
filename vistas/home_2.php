@@ -1,5 +1,5 @@
-<?php
 
+<?php
 require('header.php');
 require('subir.php');
 
@@ -14,7 +14,9 @@ if(isset($_POST['crear_contenido']) and !empty($_FILES) and !empty($_POST['conte
     move_uploaded_file($tmp,$img);
     header('location: home_2.php');
 }
-require('publicacionesGeneral.php'); 
+
+require('publicacionesGeneral.php');
+
 
 ?>
 

@@ -1,12 +1,10 @@
-
-    mostrarAlerta();
-    function mostrarAlerta(){
+    function mostrarAlerta(icono,titulo,texto){
     console.log("hola vida linda");
 	swal.fire({
 		allowOutsideClick:false,
-		icon: 'error',
-		title: 'Error',
-		text: 'ya existe un usuario registrado con ese correo, prueba con uno nuevo',})
+		icon: icono,
+		title: titulo,
+		text: texto,})
 		.then(()=>{
 			window.location=("../vistas/registro.php");
 		});
