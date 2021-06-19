@@ -184,7 +184,7 @@ header nav #info-notificaciones:hover #nav-notificaciones{
 #perfil{
     margin: 10px auto;
     width: 90%;
-    overflow: hidden;
+    overflow: hidden;   
     border-radius: 70px;
 }
 #perfil > ul li{

@@ -6,7 +6,7 @@ $patron_texto = "/^[a-zA-ZáéíóúÁÉÍÓÚñäëïöüÄËÏÖÜàèìòùÀ
 
 // ejecuta la funcion javaScript y envia los parametros 
     
-     //echo "<script> mostrarAlerta('error','Error','cabeza de bola ');</script>";
+    
 
     if(isset($_POST['registrar']))
     {
@@ -26,52 +26,55 @@ $patron_texto = "/^[a-zA-ZáéíóúÁÉÍÓÚñäëïöüÄËÏÖÜàèìòùÀ
             $_POST['edad'],
             $_POST['correo'],
         );
-
+        // valida que ningun campo este vacio
         if(datos_vacios($datos)==True)
         {
-            ?>
-            <script>
-            alert('por favor ingresa todos los datos');
-            </script>   
-            <?php
+            echo "<script>mostrarAlerta('error','Error','Debe ingresar todos los datos ');</script>";
+          
+            // validar que los campos de usuario, ciudad, edad y correo no contengan espacios
         }elseif((strpos($datos[1], " "))||(strpos($datos[3]," "))||(strpos($datos[5]," "))||(strpos($datos[6]," ")))
         {
-            echo "verifica que el usuario, la ciudad, la edad y el correo ingresados no contengan espacios en blanco";
+            echo "<script>mostrarAlerta('error','Error','verifica que el usuario, la ciudad, la edad y el correo ingresados no contengan espacios en blanco');</script>";
+           
+            
 
-
+         // validar que el usuario que se este registrando no se encuentre repetido
         }elseif(!empty(usuarios :: verificar($datos[1]))){
 
-            echo "Elige otro nombre de usuario, el nombre $datos[1] ya se encuentra en uso";
+           
+            echo "<script>mostrarAlerta('error','Error','Elige otro nombre de usuario, el nombre $datos[1] ya se encuentra en uso ');</script>";
 
-
+         // validar que el correo que se este registrando no se encuentre repetido
         }elseif(!empty(usuarios::verificarCorreo($datos[6]))){
-            echo "Elige otro correo, el correo $datos[6] ya se encuentra en uso";
+            echo "<script>mostrarAlerta('error','Error','Elige otro correo, el correo $datos[6] ya se encuentra en uso ');</script>";
+            
 
-
+         // validar mediante una expresion regular que en el campo de nombre no ingresen numeros 
         }elseif (!preg_match($patron_texto, $datos[0])){
-            echo "El nombre no debe contener numeros ni simbolos";
+            echo "<script>mostrarAlerta('error','Error','El nombre no debe contener numeros ni simbolos');</script>";
 
+         // validar mediante una expresion regular que en el campo de profesion no ingresen numeros 
         }elseif(!preg_match($patron_texto, $datos[4])){
-            echo "La profesion no debe contener numeros ni simbolos";
-
+            echo "<script>mostrarAlerta('error','Error','La profesion no debe contener numeros ni simbolos');</script>";
+     
+         //validar que en el campo de la edad no ingresen texto
         }elseif(usuarios::validarEdad($datos[5])==FALSE){
-            echo"Debe ingresar un numero";
-
+            echo "<script>mostrarAlerta('error','Error','El dato ingresado en la edad no es valido');</script>";
+         //validar que en la ciudad no ingresen numeros ni simbolos
         }elseif (!preg_match($patron_texto, $datos[3])){
-            echo "la ciudad no debe tener numeros ni simbolos";
+            echo "<script>mostrarAlerta('error','Error','la ciudad no debe tener numeros ni simbolos');</script>";
 
+
+         //validar que las claves coincidan
         }elseif($clave != $clave_conf) {
-            echo "Las claves no coinciden intentalo de nuevo";
-
+            echo "<script> mostrarAlerta('error','Error','Las claves no coinciden intentalo de nuevo ');</script>";
+            
+         // si ingresa los datos correctamente se registrará el usuario
         }else{
             usuarios :: Registrar($datos);
-            ?>
-            <script>
-            alert('Registro Exitoso');
-            window.location=("../vistas/login.php");
-    
-            </script>
-            <?php
+            echo "<script> alertaRegistro('success','Tu registro ha sido exitoso','Ahora puedes iniciar sesión');</script>";
+        
+            
     
         }
     } 

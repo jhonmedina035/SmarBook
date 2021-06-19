@@ -39,8 +39,8 @@ if(isset($_POST['comentario']))
             <ul>
                 <li>correo <samp> <?php echo $row['correo'] ?> </samp></li>
                 <li>Edad <samp> <?php echo $row['edad'] ?> </samp></li>
-                <li>Profesion <samp><?php echo $row['profesion'] ?></samp></li>
-                <li>Direcion <samp><?php echo $row['ciudad'] ?></samp></li>
+                <li>Profesión <samp><?php echo $row['profesion'] ?></samp></li>
+                <li>Direccion <samp><?php echo $row['ciudad'] ?></samp></li>
                 <li>Amigos 
                     <samp>
                         <?php 

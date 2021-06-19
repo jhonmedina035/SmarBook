@@ -2,7 +2,8 @@
 session_start();
 require('../controlador/funciones.php');
 require('../modelo/clases.php');
-$error = "";
+include('alerta.php');
+
 if(isset($_POST['enviar']))
 {
     $clave =$_POST['clave'];
@@ -15,6 +16,7 @@ if(isset($_POST['enviar']))
     if(datos_vacios($datos) == false)
     {
         if(strpos($datos[0], " " ) == false)
+        
         {
             $resultado = usuarios :: verificar($datos[0]);
             if(empty($resultado)==false)
@@ -25,15 +27,17 @@ if(isset($_POST['enviar']))
                    $_SESSION['nombre'] = $resultado[2];
                    header('location: home_2.php');
                 }else{
-                    $error="Cotraseña incorrecta";
+                    echo "<script> alertaRegistro('error','Error','contraseña incorrecta');</script>";
                 }
 
             }else{
-                $error="Nombre de usuario no valido";
+                echo "<script> alertaRegistro('error','Error','No hay nadie registrado con ese nombre de usuario');</script>";
+                
             }
         }
     }else{
-        $error="Los campos estan vacios";
+        echo "<script> alertaRegistro('error','Error','Los campos estan vacios');</script>";
+        
     }  
 }         
 ?>
@@ -73,7 +77,7 @@ if(isset($_POST['enviar']))
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="registro.php">Registrate </a></p>
          <p><a class="link" href="index.php"> regresar </a></p>
-         <p class="error"><?php echo $error ?> </p>
+         <!--<p class="error"><?php //echo $error ?> </p>-->
      </div>
     </form>
 </body>
