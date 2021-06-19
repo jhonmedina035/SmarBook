@@ -93,15 +93,25 @@ class usuarios{
         return $nfilas;
     } 
 
-    public static function verificarCorreo($lola)
+    public static function verificarCorreo($correo)
     {
+        //verificar que el correo que se va a ingresar no exista en la base de datos
         $con = conexion();
-        $instruccion =("SELECT * FROM usuarios WHERE correo = '$lola'");
+        $instruccion =("SELECT * FROM usuarios WHERE correo = '$correo'");
         $consulta = mysqli_query($con,$instruccion)
         or die ("Fallo en la consulta verificar");
         $nfilas =mysqli_fetch_array($consulta);
         return $nfilas;
     } 
+    public static function validarEdad($valor, $opciones=null)
+    {   
+            if(filter_var($valor, FILTER_VALIDATE_INT, $opciones) === FALSE){
+               return false;
+            }else{
+               return true;
+            }
+       
+    }
 
     public static function editar($id_user,$datos)
     {

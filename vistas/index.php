@@ -3,28 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilo_index.css">
-   
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="shortcut icon" href="../vistas/img/favicon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vistas/css/estilo_index.css">
+    
     <!-- CSS only -->
  
     <title>inicio</title>
 </head>
 <body>
 <header>
+ 
    
   <nav>
       <a href="#marcador1">inicio</a>
       <a href="#marcador2">Quienes somos</a>
       <a href="#marcador3">Servicios</a>
       <a href="#marcador4">Contactenos</a>
-      <a href="registro.php">Registrarce</a>
-      <a href="login.php">unirse</a>
+      <a href="../vistas/registro.php">unirse</a>
   </nav>
 
  
@@ -83,6 +79,7 @@
         <div class="carousel-caption d-none d-md-block">
           <h4 id="texto-slider">Construcción</h4>
         </div>
+      </div>
         <div class="carousel-item">
           <img class="d-block w-100" id="slider1" src="img/jardineria.jpg">
           <div class="carousel-caption d-none d-md-block">
@@ -113,7 +110,7 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
- </div>
+
 
 
   <p>Esta es la gran oportunidad que siempre estuviste esperando, en esta red social podras encontrar muchos cursos de todas
@@ -121,7 +118,7 @@
      pero eso no es todo, tambien te brindamos la oportunidad de que tu crees tus propios cursos en donde podrás ofrecer todos tus conocimientos.
      No lo pienses más y haz parte de nuestra red social
   </p>
- </div>
+</div>
 
  
 
@@ -143,15 +140,15 @@
     <div  class="servicios1">
     <img class="imgservicios" src="img/red.jpg" alt="">
     <div class="texto_servicios">
-    <p>Encontraras grupos de personas que esten alineados con tus intereses que 
-        puedan complementar tus conocimientos o tu los de ellos
+    <p>Encontraras grupos de personas que esten alineados con tus intereses, que 
+        puedan complementar tus conocimientos o tú los de ellos
     </p>
   </div>
    </div>
    <div  class="servicios1">
     <img class="imgservicios" src="img/periodico.jpg" alt="">
     <div class="texto_servicios">
-    <p>En smart book encontrarás diversos conocimientos de los cuales se puede aprender
+    <p>En smartbook encontrarás diversos cursos de los cuales se puede aprender
         de una forma interactiva, donde puedes dejar tu calificacion y apreciacion en los comentarios
     </p>
     </div>
@@ -174,14 +171,14 @@
  <form id="formulario">
     
   <div class="form-group">
-    <img id="icon"src="../javascript/img/person_black_24dp.svg" alt=""><label for="formGroupExampleInput">Nombre*</label>
+    <img id="icon"src="../vistas/img/blanco.svg" alt=""><label for="formGroupExampleInput">Nombre*</label>
     
     <input type="text" class="form-control"  placeholder="ingresa tu nombre"> 
 
-    <img id="icon" src="../javascript/img/mail_black_24dp.svg" alt=""><label for="exampleInputEmail1">Email*</label>
+    <img id="icon" src="../vistas/img/blanco2.svg" alt=""><label for="exampleInputEmail1">Email*</label>
     <input type="email" class="form-control"  placeholder="Ingresa tu email">
     
-    <img src="../javascript/img/create_black_24dp.svg" alt=""><label for="exampleFormControlTextarea1">Inquietud*</label>
+    <img id="icon"  src="../vistas/img/blanco3.svg" alt=""><label for="exampleFormControlTextarea1">Inquietud*</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="Ingresa tu inquietud"></textarea>
   </div>
   <button type="submit" id="boton"class="btn btn-primary">Enviar</button>
@@ -193,12 +190,26 @@
 
 
 
- <footer>@Derechos reservados de Sandra Mallerly Garcia Gutierrez y Jhon Fredy Medina</footer>
+ <footer>
+   <h4>@Derechos reservados de Sandra Mallerly Garcia Gutierrez y Jhon Fredy Medina</h4>
+   <a href="inicio.html">
+   <img class="iconos" src="img/instagram (1).png" alt="">
+  </a>
+  <a href="inicio.html">
+    <img class="iconos" src="img/facebook.png" alt="">
+   </a>
+   <a href="inicio.html">
+    <img class="iconos" src="img/twitter.png" alt="">
+   </a>
+ </footer>
   
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 </html>

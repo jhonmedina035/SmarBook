@@ -1,9 +1,10 @@
 <?php 
 require('../controlador/funciones.php');
 require('../modelo/clases.php');
+$patron_texto = "/^[a-zA-ZáéíóúÁÉÍÓÚñäëïöüÄËÏÖÜàèìòùÀÈÌÒÙ\s]+$/";
 
 
-$error ="";
+//$error ="";
 
     if(isset($_POST['registrar']))
     {
@@ -23,64 +24,63 @@ $error ="";
             $_POST['edad'],
             $_POST['correo'],
         );
+
+        if(datos_vacios($datos)==True)
+        {
+            ?>
+            <script>
+            alert('por favor ingresa todos los datos');
+            </script>   
+            <?php
+        }elseif((strpos($datos[1], " "))||(strpos($datos[3]," "))||(strpos($datos[5]," "))||(strpos($datos[6]," ")))
+        {
+            echo "verifica que el usuario, la ciudad, la edad y el correo ingresados no contengan espacios en blanco";
+
+
+        }elseif(!empty(usuarios :: verificar($datos[1]))){
+
+            echo "Elige otro nombre de usuario, el nombre $datos[1] ya se encuentra en uso";
+
+
+        }elseif(!empty(usuarios::verificarCorreo($datos[6]))){
+            echo "Elige otro correo, el correo $datos[6] ya se encuentra en uso";
+
+
+        }elseif (!preg_match($patron_texto, $datos[0])){
+            echo "El nombre no debe contener numeros ni simbolos";
+
+        }elseif(!preg_match($patron_texto, $datos[4])){
+            echo "La profesion no debe contener numeros ni simbolos";
+
+        }elseif(usuarios::validarEdad($datos[5])==FALSE){
+            echo"Debe ingresar un numero";
+
+        }elseif (!preg_match($patron_texto, $datos[3])){
+            echo "la ciudad no debe tener numeros ni simbolos";
+
+        }elseif($clave != $clave_conf) {
+            echo "Las claves no coinciden intentalo de nuevo";
+
+        }else{
+            usuarios :: Registrar($datos);
+            ?>
+            <script>
+            alert('Registro Exitoso');
+            window.location=("../vistas/login.php");
+    
+            </script>
+            <?php
+    
+        }
+
+
         
-        if(datos_vacios($datos) == false)
-        {
-            $datos = limpiar($datos);
-
-            /*Validar que los campos no nontengan espacios vacios */
-
-            if(strpos($datos[1], " " ) == false)
-            {
-
-                if(empty(usuarios::verificarCorreo($datos[6])))
-                {
-                              
-                }
-                else
- 
-                { 
-                       ?>
-                       <html> 
-                       <body>
-                       
-                       <!--<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                       <script src="js/sweetAlert.js">mostrarAlerta();</script> -->
-                       <script> mostrarAlerta('error','Error','nnue')</script>
-                       </body>
-                       </html>
-                       <?php 
-                 
-                      //require('js/sweetAlert.js');
-                }
-
-                /*Validar que el usario no este*/
-                if(empty(usuarios :: verificar($datos[1])))
-                {
-                    /*enviar el arreglo a la funcion registrar que se encuenta en las clases*/
-                    usuarios :: Registrar($datos);
-
-                    ?>
-                    
-                    <script>//mostrar al usuario mensaje y direccionar 
-                        window.alert('Te has registrado con exito ya puedes iniciar');
-                        window.location='login.php';
-                    </script>
-                    <?php
-                
-
-                }else
-                {
-                   $error .="El usuario ya existe"; 
-                }
-            }else{
-                $error .= "El campo usuarios no deve contener espacios";
-            }  
-        }else
-        {
-            $error .= "hay campos vacios";
-        }   
     }
+
+
+        
+       
+    
 ?>
 
 <!DOCTYPE html>

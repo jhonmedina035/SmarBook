@@ -12,16 +12,12 @@
     text-align: justify;
     
 }
-body{
 
-    /*background-image: url("https://img.freepik.com/vector-gratis/fondo-tinta-alcohol-rosa-diseno-pintura-arte-fluido-abstracto_25819-699.jpg?size=626&ext=jpg&ga=GA1.2.796521790.1609372696");*/
-    background:#fffbdf;
-}
 
 header{
     background: #56cbf2ef;  
-    background: -webkit-linear-gradient(to left,hsla(214, 95%, 50%, 0.671), hsla(195, 95%, 50%, 0.671)),  url(../img/People_Discussing_Business_Ideas_-_Barinstorming_and_Business_Meeting_Concept.jpg); 
-    background: linear-gradient(to left, hsla(214, 95%, 50%, 0.671), hsla(195, 95%, 50%, 0.671)), url(../img/m_2844640.jpg);
+    background: -webkit-linear-gradient(to left,hsla(214, 95%, 50%, 0.671), hsla(195, 95%, 50%, 0.671)),  url(../img/m_2844640.jpg); 
+    background: linear-gradient(to left, hsla(214, 95%, 50%, 0.671), hsla(195, 95%, 50%, 0.671)),url(../img/m_2844640.jpg);
    
     /* background: #0dbee6;  fallback for old browsers 
   background: -webkit-linear-gradient(to right, hsla(356, 90%, 64%, 0.603), hsla(280, 78%, 69%, 0.616), hsla(191, 86%, 49%, 0.603));  
@@ -35,10 +31,8 @@ header{
     background-attachment: fixed;
     position: relative;
 }
-.logo{
-    width: 10%;
-    margin-left: 1em;
-}
+
+
 
 nav{
     text-align: right;
@@ -79,14 +73,15 @@ header .texto-header{
     color: white;
     font-family: 'Oswald', sans-serif;
     height: auto;
-    background:#3d84b8;
+    background-color: #3d85b8;
+    
 
 }
 
 .titulo1{
     flex-basis: 80%;
     margin: auto;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     text-align: center;
     /*margin-top: 3em;*/
     font-weight: 500;
@@ -104,12 +99,16 @@ header .texto-header{
     max-width: 1100px;
     flex-direction:column ;
     height: 650px;
-    width: 90%;    
+    width: 90%;
+   
+    
+   
+    
+    
 }
 #explicacion>p{
     text-align: center;
     justify-content: center;
-
     display: flex;
    
 }
@@ -211,7 +210,7 @@ header .texto-header{
     display: flex;
     flex-basis: 100%;
     flex-direction: row;
-    margin-bottom: 6em;
+    margin-bottom: 4em;
 }
 
 #formulario{
@@ -258,7 +257,21 @@ footer{
     margin-left: 0%;
     margin-right: 0%;
     color: white;
+    
    
+}
+footer>h4{
+    margin-right: 7em;
+    font-weight: 100;
+   
+}
+.iconos{
+   
+    margin-left: 0,5em;
+    margin: auto;
+    
+   
+
 }
 #icon{
     margin-bottom: 3px;
@@ -266,7 +279,7 @@ footer{
 }
 label{
 
-    color: black;
+    color: white;
 }
 
 
@@ -274,7 +287,6 @@ label{
     header{
         height:400px;
        
-
     }
     nav{
       padding: 0%;  
@@ -385,6 +397,7 @@ label{
         display: flex;
         margin-bottom: 3em;
         flex-direction: column;
+        
     }
     
     #formulario{
@@ -414,4 +427,11 @@ label{
         width: 90%;
         padding: 2em;
     }
+    .footer>h4{
+        margin: 0%;
+       
+    }
+
+
+
 }
