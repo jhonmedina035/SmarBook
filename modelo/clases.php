@@ -23,12 +23,22 @@ class Cursos{
         return $nfilas;
     }
 
+    public static function mostrar_categoria_por_id($id)
+    {
+        $con = conexion();
+        $instruccion =("SELECT * FROM categorias where id_categoria = $id");
+        $consulta = mysqli_query($con,$instruccion)
+        or die ("Fallo en la consulta mostrar categorias por id");
+        $nfilas = $consulta ;
+        return $nfilas;
+    }
+
     public static function mostrar_cursos($id_user)
     {
         $con = conexion();
         $instruccion =("SELECT * FROM cursos where id_user = $id_user");
         $consulta = mysqli_query($con,$instruccion)
-        or die ("Fallo en la consulta mostrar categorias");
+        or die ("Fallo en la consulta mostrar cursos");
         $nfilas = $consulta;
         return $nfilas;
     }
@@ -44,9 +54,8 @@ class Cursos{
         return $resultado;  
     }
 
-    public static function contenido_por_id_curso($id_curso)
+    public static function contenido_por_id_cursos($id_curso)
     {
-        
         $con = conexion();
         $instruccion =("SELECT * FROM publicaciones WHERE id_cursos = $id_curso");
         $consulta = mysqli_query($con,$instruccion)
@@ -54,7 +63,31 @@ class Cursos{
         $nfilas = $consulta ;
         return $nfilas;
     }
-    
+
+    public static function cursos_por_id($id_curso)
+    {
+        $con = conexion();
+        $instruccion =("SELECT * FROM cursos WHERE id_cursos = $id_curso");
+        $consulta = mysqli_query($con,$instruccion)
+        or die ("Fallo en la consulta mostrar categorias");
+        $nfilas = $consulta ;
+        return $nfilas;
+    }
+
+    public static function mostrarTodo($cursos)
+    {
+        $con = conexion();
+        $instruccion =("SELECT U.id_user, U.nombre, U.foto_perfil, P.id_publicaciones, P.contenido, P.img
+          from usuarios U inner join publicaciones P on U.id_user = P.id_user where P.id_cursos in('$cursos')" 
+                                );
+        $consulta = mysqli_query($con,$instruccion)
+        or die ("Fallo en la consulta post mostrar todo");                        
+        $resultado =$consulta;
+        return $resultado;  
+    }
+
+
+   
 }
 
 class usuarios{
@@ -171,7 +204,7 @@ class post{
     public static function mostrarTodo($amigos)
     {
         $con = conexion();
-        $instruccion =("SELECT U.id_user, U.nombre, U.foto_perfil, P.id_publicaciones, P.contenido, P.img
+        $instruccion =("SELECT U.id_user, U.nombre, U.foto_perfil, P.id_publicaciones, P.contenido, P.img, P.id_cursos
                         from usuarios U inner join publicaciones P on U.id_user = P.id_user where P.id_user in('$amigos')
                         ORDER BY P.id_publicaciones DESC" 
                                 );
@@ -383,7 +416,7 @@ class amigos
         return $resultado;  
     } 
     
-    public static function cantidad_amigos1($id_user)
+    public static function amigos_por_id($id_user)
     {
         $con = conexion();
         $instruccion =("SELECT * from amigos where(user_enviador =$id_user or user_receptor =$id_user) and status = 1");
@@ -393,12 +426,7 @@ class amigos
         return $resultado;  
     }
     
-    
-    function mostrar_amigos($id_amigo)
-    {
 
-
-    }
 }
 
 ?>

@@ -1,43 +1,23 @@
-<?php 
+<?php
+require('header.php');
 
-if(isset($_POST['comentario']))
-{
-    if(!empty($_POST['comentario']))
-    {
-        comentarios::agregar($_POST['comentario'], $_SESSION['id_user'], $_POST['id_publicaciones']);
-        notificaciones :: agregar(1, $_POST['id_publicaciones'] ,$_SESSION['id_user']); 
-    }
-}
-if(isset($_GET['mg']))
-{
-    if($_GET['accion']==1) // caso de like
-    {
-        mg::agregarlike($_GET['id_publicaciones'], $_SESSION['id_user']);//agregar like a la tabla 
-        notificaciones :: agregar(FALSE, $_GET['id_publicaciones'] ,$_SESSION['id_user']);// agregar la notificacion 
-    }elseif($_GET['accion']==0){ // caso dislike
-        mg::agregarDislike($_GET['id_publicaciones'], $_SESSION['id_user']); // agregar disLike
-        // No notifico negativamente por cuestion de moral 
-    }
-}
-//me trae todos mis amigos
-$amigos = amigos::amigos_por_id($_SESSION['id_user']);
-//recorro el arreglo amigos para extaer sus id y guardarlos en un arreglo 
-$misAmigos[] = $_SESSION['id_user'];
-foreach ($amigos as $a) {
-    if ($a[1] != $_SESSION['id_user'])
-    {
-        $misAmigos[] = $a[1];
-    }elseif($a[2] != $_SESSION['id_user'])
-    {
-        $misAmigos[] = $a[2];
-    }
+if(isset($_GET['id_curso'])){
+    $post = Cursos :: mostrarTodo($_GET['id_curso']);
+    $cur = Cursos :: cursos_por_id($_GET['id_curso']);
+    $datocur = mysqli_fetch_array($cur, MYSQLI_BOTH);
+    $cat = Cursos :: mostrar_categoria_por_id($datocur[3]);
+    $datocat = mysqli_fetch_array($cat, MYSQLI_BOTH);
 }
 
 
 ?>
+
 <div class="publicaciones">
-    <?php foreach ($misAmigos as $mia):?>
-    <?php $post = post::mostrarTodo($mia)?>
+    <div class="titulosCurso">
+        <h1 class="centrarTxt"><?php echo $datocur[1];?> </h1>
+        <H3 class="centrarTxt"> De la categoria de   <?php echo $datocat[1];?> </H3>
+    </div>
+    
     <?php if(!empty($post)):?>
         <?php foreach($post as $posts): ?>
             <div class="publi-info-perfil ">
@@ -68,9 +48,7 @@ foreach ($amigos as $a) {
                 <?php endif; ?>
             </div>
             <div class="publi-contene-like">
-
-                 <a href="curso.php?id_curso=<?php echo $posts['id_cursos']?>"> ir a curso </a> 
-
+                  
                 <?php if(count(mg::verificar_mg($posts['id_publicaciones'], $_SESSION['id_user'])) == 0): ?>  
                     <a href = "<?php echo $_SERVER['PHP_SELF']?>?mg=1&&id_publicaciones=<?php echo $posts['id_publicaciones']?>&&accion=1" class="like icon-happy"></a>
                     <a href = "<?php echo $_SERVER['PHP_SELF']?>?mg=1&&id_publicaciones=<?php echo $posts['id_publicaciones']?>&&accion=0" class="like icon-sad"></a>
@@ -86,6 +64,21 @@ foreach ($amigos as $a) {
             </div>
         <?php endforeach;?>
     <?php endif;?>
-<?php endforeach; ?>
+
+    <form class="calificar">
+        <h3 class="txtcalificar">Calificar curso</h3>
+
+        <p class="clasificacion">
+            <input id="radio1" type="radio" name="estrellas" value="5"><!--
+            --><label for="radio1">★</label><!--
+            --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+            --><label for="radio2">★</label><!--
+            --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+            --><label for="radio3">★</label><!--
+            --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+            --><label for="radio4">★</label><!--
+            --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+            --><label for="radio5">★</label>
+        </p>
+    </form>
 </div>
-</Main> 

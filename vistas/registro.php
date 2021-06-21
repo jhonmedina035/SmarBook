@@ -4,9 +4,6 @@ require('../modelo/clases.php');
 require('alerta.php');
 $patron_texto = "/^[a-zA-ZáéíóúÁÉÍÓÚñäëïöüÄËÏÖÜàèìòùÀÈÌÒÙ\s]+$/";
 
-// ejecuta la funcion javaScript y envia los parametros 
-    
-    
 
     if(isset($_POST['registrar']))
     {
@@ -37,7 +34,6 @@ $patron_texto = "/^[a-zA-ZáéíóúÁÉÍÓÚñäëïöüÄËÏÖÜàèìòùÀ
             echo "<script>mostrarAlerta('error','Error','verifica que el usuario, la ciudad, la edad y el correo ingresados no contengan espacios en blanco');</script>";
            
             
-
          // validar que el usuario que se este registrando no se encuentre repetido
         }elseif(!empty(usuarios :: verificar($datos[1]))){
 
@@ -63,7 +59,6 @@ $patron_texto = "/^[a-zA-ZáéíóúÁÉÍÓÚñäëïöüÄËÏÖÜàèìòùÀ
          //validar que en la ciudad no ingresen numeros ni simbolos
         }elseif (!preg_match($patron_texto, $datos[3])){
             echo "<script>mostrarAlerta('error','Error','la ciudad no debe tener numeros ni simbolos');</script>";
-
 
          //validar que las claves coincidan
         }elseif($clave != $clave_conf) {

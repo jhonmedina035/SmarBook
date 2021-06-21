@@ -1,7 +1,7 @@
 <?php
 require('header.php');
 
-$amigos = amigos::cantidad_amigos1($_SESSION['id_user']);
+$amigos = amigos::amigos_por_id($_SESSION['id_user']);
 // traer todos los id de mis amigos 
 foreach ($amigos as $a) {
     if ($a[1] != $_SESSION['id_user'])

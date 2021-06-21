@@ -50,6 +50,7 @@ if(isset($_GET['mg']))
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
+            
             <div class="publi-contene-like">
                 <?php if(count(mg::verificar_mg($posts['id_publicaciones'], $_SESSION['id_user'])) == 0): ?>  
                     <a href = "<?php echo $_SERVER['PHP_SELF']?>?mg=1&&id_publicaciones=<?php echo $posts['id_publicaciones']?>&&accion=1" class="like icon-happy"></a>

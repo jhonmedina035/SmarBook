@@ -5,6 +5,10 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
+
+.centrarTxt{
+    text-align: center;
+}
 .icono{
     color: rgb(253, 247, 247);
 }
@@ -260,6 +264,8 @@ video{
         width: 80%;
         height: 30px; 
     }
+
+    
         
 } 
 
@@ -395,3 +401,57 @@ video{
    margin-top: 1rem;   
 }
 
+
+/* estilos calificar por estrellas */
+.calificar form {
+    width: 300px;
+    margin: 0 auto;
+    height: 50px;
+    
+  }
+  
+.calificar p {
+    text-align: center;
+  }
+  
+.calificar label {
+    font-size: 40px;
+  }
+  
+.calificar  input[type="radio"] {
+    display: none;
+  }
+  
+.calificar label {
+    color: grey;
+  }
+  
+.clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+    color: orange;
+  }
+  
+  .calificar input[type="radio"]:checked ~ label {
+    color: orange;
+  }
+
+
+  .titulosCurso{
+      margin-bottom: 50px;
+  }
+  .txtcalificar{
+      margin-left: 10px;
+      margin-right: 20px;
+  }
+
+  @media (max-width: 850px){
+    .calificar label {
+        font-size: 30px;
+      }
+
+  }
