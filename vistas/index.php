@@ -171,15 +171,19 @@
  <form id="formulario">
     
   <div class="form-group">
-    <img id="icon"src="../vistas/img/blanco.svg" alt=""><label for="formGroupExampleInput">Nombre*</label>
+    <img id="icon"src="img/blanco.svg" alt=""><label for="formGroupExampleInput">Nombre*</label>
     
+ 
     <input type="text" class="form-control"  placeholder="ingresa tu nombre"> 
 
-    <img id="icon" src="../vistas/img/blanco2.svg" alt=""><label for="exampleInputEmail1">Email*</label>
-    <input type="email" class="form-control"  placeholder="Ingresa tu email">
+    <img id="icon" src="img/blanco2.svg" alt=""><label for="exampleInputEmail1">Email*</label>
+    <input type="email" class="form-control"  placeholder="Ingresa el email">
     
-    <img id="icon"  src="../vistas/img/blanco3.svg" alt=""><label for="exampleFormControlTextarea1">Inquietud*</label>
+    <img id="icon"  src="img/blanco3.svg" alt=""><label for="exampleFormControlTextarea1">Inquietud*</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="Ingresa tu inquietud"></textarea>
+    <div>
+      <p>Envia tu inquietud a este correo sandragarciag2020@gmail.com</p>
+    </div>
   </div>
   <button type="submit" id="boton"class="btn btn-primary">Enviar</button>
  </form>

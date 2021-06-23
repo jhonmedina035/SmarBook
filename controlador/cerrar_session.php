@@ -1,10 +1,12 @@
 <?php
 //inicio de sesion 
+require('../vistas/alerta.php');
 session_start();
-session_destroy()
-?>
+session_destroy();
 
-<script>//mostrar al usuario el error y direccionar 
-         window.alert('La sesion a finalizado con exito');
-         window.location='../vistas/index.php';
-</script>
+
+
+ echo "<script> alerta('success','sesión','La sesíon ha sido finallizada con exito','../vistas/index.php');</script>";
+
+//alerta(icono,titulo,texto,ubicacion)
+?>

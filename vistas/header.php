@@ -32,6 +32,7 @@ verificar_session();
                     <a class="icon-search icono"></a>
                 </form> 
                 
+              
                 <nav class="navegacion">
                     <ul class="menu-header">       
                         <li><a href="home_2.php" ><samp class="icon-home"></samp> INICIO</a></li>
@@ -88,3 +89,4 @@ verificar_session();
                 </nav>
             </div>
         </header>
+
