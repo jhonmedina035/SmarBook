@@ -86,6 +86,16 @@ class Cursos{
         return $resultado;  
     }
 
+    public static function contenido_por_id_cursos1($id_curso)
+    {
+        $con = conexion();
+        $instruccion =("SELECT MIN(id_publicaciones) FROM publicaciones WHERE id_cursos =  $id_curso");
+        $consulta = mysqli_query($con,$instruccion)
+        or die ("Fallo en la consulta contenido curso1");
+        $nfilas = $consulta ;
+        return $nfilas;
+    }
+
 
    
 }
@@ -187,6 +197,19 @@ class post{
         $consulta = mysqli_query($con,$instruccion)
         or die ("Fallo en la consulta post agregar");                            
         
+    }
+
+    public static function mostrarTodo_por_id_post($amigos)
+    {
+        $con = conexion();
+        $instruccion =("SELECT U.id_user, U.nombre, U.foto_perfil, P.id_publicaciones, P.contenido, P.img, P.id_cursos
+                        from usuarios U inner join publicaciones P on U.id_user = P.id_user where P.id_publicaciones in('$amigos')
+                        ORDER BY P.id_publicaciones DESC" 
+                                );
+        $consulta = mysqli_query($con,$instruccion)
+        or die ("Fallo en la consulta post mostrar todo");                        
+        $resultado =$consulta;
+        return $resultado;  
     }
 
     public static function post_por_usuario($id_user)
