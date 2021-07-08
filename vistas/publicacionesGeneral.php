@@ -33,11 +33,25 @@ foreach ($amigos as $a) {
     }
 }
 
+foreach($misAmigos as $item){
+    $curso = Cursos :: mostrar_cursos($item);
+    foreach($curso as $c){
+        $cursos[] = $c; 
+    } 
+}
+
+foreach($cursos as $c){
+    $con = Cursos :: contenido_por_id_cursos1($c['id_cursos']);
+    $datocon = mysqli_fetch_array($con, MYSQLI_BOTH);
+    $top[] = $datocon[0]; 
+}
+
 
 ?>
 <div class="publicaciones">
-    <?php foreach ($misAmigos as $mia):?>
-    <?php $post = post::mostrarTodo($mia)?>
+    <?php foreach ($top as $mia):?>
+    <?php $post = post::mostrarTodo_por_id_post($mia)?>
+
     <?php if(!empty($post)):?>
         <?php foreach($post as $posts): ?>
             <div class="publi-info-perfil ">
