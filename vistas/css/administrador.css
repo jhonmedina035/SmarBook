@@ -1,0 +1,31 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+header{
+    background-color: rgb(15, 45, 78);
+    color: white;
+    height: 80px;
+    
+}
+
+.usuario{
+
+    margin-left: 35%;
+    padding-top: 0.5em; 
+}
+
+#tabla{
+    background-color: rgb(15, 45, 78);
+    color: white;
+}
+#formulario{
+    margin-right: 1em;
+}
+.titulo{
+    
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}

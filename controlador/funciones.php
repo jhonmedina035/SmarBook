@@ -55,10 +55,31 @@
 
     function verificar_session()
     {
-       if(! isset($_SESSION['id_user']))
+       if(!isset($_SESSION['id_user']))
        {
            header('location: login.php');
+           
+           if($_SESSION['rol']==1){
+            header('location: administrador.php');
+      
+           }
        }
+      
+       
+
+
+      
+
+
+
+
+       
+
+
+       
+       
+       
+       
     }
 
 ?>

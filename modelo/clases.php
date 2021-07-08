@@ -116,6 +116,21 @@ class usuarios{
         
     }
 
+    public static function eliminarUsuario($id)
+    {
+        $con= conexion();
+        $instruccion="DELETE FROM usuarios WHERE id_user='$id'";    
+        $consulta=mysqli_query($con,$instruccion);
+
+        if($consulta){
+            header("Location: administrador.php");
+
+
+        }
+
+    }
+
+
     public static function verificar($usuario)
     {
         $con = conexion();

@@ -32,8 +32,12 @@ if(isset($_POST['editar']))
 ?>
 
 <div class="editar_perfil">
+<div class="imagen-perfil">
+        <img id="img" src="../vistas/img/perfil.svg" alt="">
+
+    </div>
     <div class="form_editar">
-        <h1> Editar perfil</h1>
+        <h1 class="titulo_editar"> Editar perfil</h1>
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" enctype="multipart/form-data" method ="post">
             <input type="text" name="nombre" class="input-control" value="<?php echo $usuario['nombre']; ?>">
             <input type="text" name="correo" class="input-control" value="<?php echo $usuario['correo']; ?>">
@@ -43,11 +47,12 @@ if(isset($_POST['editar']))
             <input type="submit" value="Editar" name="editar" class="botton">
         </form>
         <div class="Registrar">
-            <a href="perfil.php?id_user=<?php echo $_SESSION['id_user'];?>"> Volver al perfil</a>
+            <a id="volver"class="btn fas fa-long-arrow-alt-left" href="perfil.php?id_user=<?php echo $_SESSION['id_user'];?>"> Volver al perfil</a>
         </div>
     </div>
+  
 
 </div>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </body>
 </html>

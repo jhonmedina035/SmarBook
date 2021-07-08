@@ -25,7 +25,15 @@ if(isset($_POST['enviar']))
                 {
                    $_SESSION['id_user'] = $resultado[0];
                    $_SESSION['nombre'] = $resultado[2];
-                   header('location: home_2.php');
+                   $_SESSION['rol'] = $resultado[8];
+                   if($_SESSION['rol']==1){
+                    header('location:administrador.php');
+
+                   }else{
+                    header('location: home_2.php');
+
+                   }
+                      
                 }else{
                     echo "<script> alertaRegistro('error','Error','contraseña incorrecta');</script>";
                 }

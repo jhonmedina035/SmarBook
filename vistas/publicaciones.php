@@ -39,8 +39,8 @@ if(isset($_GET['mg']))
                 <video src="<?php echo $posts['img'];?>" controls poster="posterimage.jpg"> 
             </div>
             <div class="link_mostrar">
-                <p id="like"><?php echo mg::mostrarlikes($posts['id_publicaciones'])[0][0]; ?> me gusta</p>
-                <p id="like"><?php echo mg::mostrarDislikes($posts['id_publicaciones'])[0][0]; ?> no gusta</p>
+                <p id="like"class=" fas fa-thumbs-up"><?php echo mg::mostrarlikes($posts['id_publicaciones'])[0][0]; ?> me gusta</p>
+                <p id="like"class="fas fa-thumbs-down"><?php echo mg::mostrarDislikes($posts['id_publicaciones'])[0][0]; ?> no gusta</p>
             </div>
             <div id="mostrar comentario">
                 <?php $comentario = comentarios::mostrar($posts['id_publicaciones']); ?>
@@ -53,12 +53,13 @@ if(isset($_GET['mg']))
             
             <div class="publi-contene-like">
                 <?php if(count(mg::verificar_mg($posts['id_publicaciones'], $_SESSION['id_user'])) == 0): ?>  
-                    <a href = "<?php echo $_SERVER['PHP_SELF']?>?mg=1&&id_publicaciones=<?php echo $posts['id_publicaciones']?>&&accion=1" class="like icon-happy"></a>
-                    <a href = "<?php echo $_SERVER['PHP_SELF']?>?mg=1&&id_publicaciones=<?php echo $posts['id_publicaciones']?>&&accion=0" class="like icon-sad"></a>
+                    <a href = "<?php echo $_SERVER['PHP_SELF']?>?mg=1&&id_publicaciones=<?php echo $posts['id_publicaciones']?>&&accion=1" class="far fa-thumbs-up"></a>
+                    <a href = "<?php echo $_SERVER['PHP_SELF']?>?mg=1&&id_publicaciones=<?php echo $posts['id_publicaciones']?>&&accion=0" class="far fa-thumbs-down"></a>
                 <?php else: ?> 
-                    <a  class="like icon-happy"></a>
-                    <a class="like icon-sad"></a>
+                    <a  class="far fa-thumbs-up"></a>
+                    <a class="far fa-thumbs-down"></a>
                 <?php endif; ?>    
+                <i ></i>
                   
                 <form action="<?php echo $_SERVER['PHP_SELF']?>" class="comentario" method="POST">
                     <input type="text" name="comentario" placeholder="Escribe tu comentario">
@@ -69,3 +70,5 @@ if(isset($_GET['mg']))
     <?php endif;?>
 </div>
 </Main> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+

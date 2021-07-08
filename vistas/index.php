@@ -20,7 +20,7 @@
       <a href="#marcador2">Quienes somos</a>
       <a href="#marcador3">Servicios</a>
       <a href="#marcador4">Contactenos</a>
-      <a href="../vistas/registro.php">unirse</a>
+      <a href="../vistas/login.php">unirse</a>
   </nav>
 
  
@@ -181,9 +181,7 @@
     
     <img id="icon"  src="img/blanco3.svg" alt=""><label for="exampleFormControlTextarea1">Inquietud*</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="Ingresa tu inquietud"></textarea>
-    <div>
-      <p>Envia tu inquietud a este correo sandragarciag2020@gmail.com</p>
-    </div>
+
   </div>
   <button type="submit" id="boton"class="btn btn-primary">Enviar</button>
  </form>

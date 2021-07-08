@@ -37,11 +37,11 @@ if(isset($_POST['comentario']))
             <h1 class="no-resultados"> Perfil</h1>
             <H3><?php echo $row['nombre']?></H3>
             <ul>
-                <li>correo <samp> <?php echo $row['correo'] ?> </samp></li>
-                <li>Edad <samp> <?php echo $row['edad'] ?> </samp></li>
-                <li>Profesión <samp><?php echo $row['profesion'] ?></samp></li>
-                <li>Direccion <samp><?php echo $row['ciudad'] ?></samp></li>
-                <li>Amigos 
+                <li>Correo: <samp> <?php echo $row['correo'] ?> </samp></li>
+                <li>Edad: <samp> <?php echo $row['edad'] ?> </samp></li>
+                <li>Profesión: <samp><?php echo $row['profesion'] ?></samp></li>
+                <li>Dirección: <samp><?php echo $row['ciudad'] ?></samp></li>
+                <li>Amigos: 
                     <samp>
                         <?php 
                             
@@ -67,19 +67,22 @@ if(isset($_POST['comentario']))
        
             <?php if($_GET['id_user'] != $_SESSION['id_user']):?>
                 <?php if(empty($verificar_amigos)):?>
-                    <li><a href="perfil.php?id_user=<?php echo $_GET['id_user']?>&&agregar=<?php echo $_GET['id_user'];?>">Agregar</a></li>
+                    <li><a id="agregar" class="btn  fas fa-user-plus" href="perfil.php?id_user=<?php echo $_GET['id_user']?>&&agregar=<?php echo $_GET['id_user'];?>"> Agregar</a>
+                    
+                </li>
                 <?php elseif($verificar_amigos[0][3] != 0):  ?>    
                     <li><a href="#">Amigos</a></li>
                 <?php else: ?>    
-                    <li><a href="#">Solicitud enviadas</a></li>
+                    <li><a id="enviada" class="btn btn-success fas fa-check" href="#"> Solicitud enviada</a></li>
                 <?php endif; ?>    
             <?php else:?>
-                <li><a href="editar_perfil.php">Editar</a></li>
-                <li><a href="buscar_amigos.php">Mis amigos</a></li>    
+                <li><a id="editar" class="btn fas fa-user-edit" href="editar_perfil.php"> Editar</a></li>
+                <li><a id="amigos" class="btn fas fa-users" href="buscar_amigos.php"> Mis amigos</a></li>    
             <?php endif; ?>
     </ul>
 </div>
 <?php require('publicaciones.php'); ?>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </body>
 </html>
