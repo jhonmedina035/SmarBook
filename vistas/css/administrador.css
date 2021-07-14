@@ -6,14 +6,26 @@
 header{
     background-color: rgb(15, 45, 78);
     color: white;
-    height: 80px;
-    
+    height: 100px;
+
+}
+#logout{
+    margin-left: 90%;
+    width: 90px;
+    height: 35px;
+    padding-bottom: 10px;
+    color: white;
+    font-size: 25px;
+  
 }
 
 .usuario{
 
-    margin-left: 35%;
-    padding-top: 0.5em; 
+  width: 89%;
+ padding-top: 10px;
+ text-align: center;
+   
+
 }
 
 #tabla{

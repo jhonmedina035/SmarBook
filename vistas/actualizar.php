@@ -20,7 +20,7 @@ $filas=mysqli_fetch_array($consulta);
     <title>Document</title>
 </head>
 <body>
-<div class="container">
+<div style="margin-top: 1em;" class="col-md-8 container">
 <form action="update.php" method="POST">
             <input type="hiden"  class="form-control mb-3" name="id_user" readonly onmousedown="return false;" placeholder="id"value="<?php echo $filas['id_user']?>">
             <input type="hiden" class="form-control mb-3" name="nombre" placeholder="nombre" value="<?php echo $filas['nombre']?>">
@@ -33,7 +33,10 @@ $filas=mysqli_fetch_array($consulta);
             <input type="text" class="form-control mb-3" name="rol" placeholder="rol" value="<?php echo $filas['rol']?>">
             <input type="text" class="form-control mb-3" name="id_estado" placeholder="estado"value="<?php echo $filas['id_estado']?>">
 
-            <input type="submit" class="btn btn-success" value="Actualizar">
+            <div style="text-align: center;">
+            <input  type="submit" class="btn btn-success" value="Actualizar">
+            </div>
+            
 </form>
 
 </div>

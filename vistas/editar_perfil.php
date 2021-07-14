@@ -37,14 +37,14 @@ if(isset($_POST['editar']))
 
     </div>
     <div class="form_editar">
-        <h1 class="titulo_editar"> Editar perfil</h1>
+        <h2 class="titulo_editar">Editar perfil</h2>
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" enctype="multipart/form-data" method ="post">
-            <input type="text" name="nombre" class="input-control" value="<?php echo $usuario['nombre']; ?>">
-            <input type="text" name="correo" class="input-control" value="<?php echo $usuario['correo']; ?>">
-            <input type="text" name="profesion" class="input-control" value="<?php echo $usuario['profesion']; ?>">
-            <input type="text" name="ciudad" class="input-control" value="<?php echo $usuario['ciudad']; ?>">
-            <input type="file" name="foto" >
-            <input type="submit" value="Editar" name="editar" class="botton">
+            <input type="text" name="nombre" class="form-control mb-3" value="<?php echo $usuario['nombre']; ?>">
+            <input type="text" name="correo" class="form-control mb-3" value="<?php echo $usuario['correo']; ?>">
+            <input type="text" name="profesion" class="form-control mb-3" value="<?php echo $usuario['profesion']; ?>">
+            <input type="text" name="ciudad" class="form-control mb-3" value="<?php echo $usuario['ciudad']; ?>">
+            <input type="file"name="foto" >
+            <input type="submit" value="Editar" name="editar" id="botonn"class="btn ">
         </form>
         <div class="Registrar">
             <a id="volver"class="btn fas fa-long-arrow-alt-left" href="perfil.php?id_user=<?php echo $_SESSION['id_user'];?>"> Volver al perfil</a>

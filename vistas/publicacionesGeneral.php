@@ -39,7 +39,7 @@ foreach($misAmigos as $item){
         $cursos[] = $c; 
     } 
 }
-
+echo count($cursos);
 foreach($cursos as $c){
     $con = Cursos :: contenido_por_id_cursos1($c['id_cursos']);
     $datocon = mysqli_fetch_array($con, MYSQLI_BOTH);

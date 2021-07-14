@@ -125,6 +125,28 @@ class usuarios{
         or die ("Fallo registrar un usuario ");
         
     }
+    public static function insetarUsuario($foto_perfil,$nombre,$usuario,$clave_crypt,$ciudad,
+        $profesion,$edad,$rol,$estado,$correo){
+ 
+        
+        $con=conexion();
+
+
+        $instruccion="INSERT INTO usuarios (id_user,foto_perfil,nombre,usuario,clave,ciudad,profesion,edad,rol,id_estado,correo)VALUES (null,'$foto_perfil' ,'$nombre', '$usuario', '$clave_crypt', '$ciudad','$profesion','$edad', '$rol','$estado','$correo')";
+        $consulta= mysqli_query($con,$instruccion)
+        or die ("Fallo registrar un usuario ");
+
+     
+
+        if($consulta){
+            header("Location: administrador.php");
+
+
+        }
+
+
+
+    }
 
     public static function eliminarUsuario($id)
     {
