@@ -23,7 +23,6 @@
 			});
 		}
 	    function alerta(icono,titulo,texto,ubicacion){
-			console.log("hola vida linda");
 			swal.fire({
 				allowOutsideClick:false,
 				icon: icono,
