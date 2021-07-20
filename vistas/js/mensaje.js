@@ -32,6 +32,9 @@
 					window.location=(ubicacion);
 				});
 			}
+			
+	
+		
 	
 	
 

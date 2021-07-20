@@ -111,24 +111,24 @@ if(!empty($amigos)){
             <div class="publi-info-perfil ">
                 <table>
                     <tr>
-                        <td><a href="#"><img src="img/logo2.png" alt="" class="publi-img-perfil"></a></td>
-                        <td><a href="#" id="nombre_usuario" class="nombre_usuario"> Samar book</a> </td>
+                        <td><a href="#"><img src="img/logoEditado.png" alt="" class="publi-img-perfil"></a></td>
+                        <td><a href="#" id="nombre_usuario" class="nombre_usuario">Smart Book</a> </td>
                     </tr>
                 </table>
             </div >
                 <div class="publi-thumb ">
-                    <img src="img/img_bienvenida1.jpeg"> 
+                    <img src="img/bienvenida1.jpg"> 
                 </div>
 
                 <div class="publi-info-perfil ">
                 <table>
                     <tr>
-                        <td><a href="#"><img src="img/logo2.png" alt="" class="publi-img-perfil"></a></td>
-                        <td><a href="#" id="nombre_usuario" class="nombre_usuario"> Samar book</a> </td>
+                        <td><a href="#"><img src="img/logo" alt="" class="publi-img-perfil"></a></td>
+                        <td><a href="#" id="nombre_usuario" class="nombre_usuario">Smart Book</a> </td>
                     </tr>
                 </table>
             </div >
-                <div class="publi-thumb ">
+                <div class="publi-thumb">
                     <img src="img/img_bienbenida_1.jpeg"> 
                 </div>
                     
