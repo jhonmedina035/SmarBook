@@ -44,7 +44,6 @@ if(isset($_POST['comentario']))
                 <li>Amigos: 
                     <samp>
                         <?php 
-                            
                             if(!empty(amigos::cantidad_amigos($_GET['id_user'])))
                                 echo amigos::cantidad_amigos($_GET['id_user'])[0][0];
                             else echo 0;      
@@ -71,7 +70,8 @@ if(isset($_POST['comentario']))
                     
                 </li>
                 <?php elseif($verificar_amigos[0][3] != 0):  ?>    
-                    <li><a href="#">Amigos</a></li>
+                    <li><a href="#" class="btn  fas fa-user-plus">Amigos</a></li>
+                    <li><a href="eliminarAmigo.php?id_user=<?php echo $_GET['id_user']?>" class="btn  fas fa-user-plus">Dejar de ser Amigos</a></li>
                 <?php else: ?>    
                     <li><a id="enviada" class="btn btn-success fas fa-check" href="#"> Solicitud enviada</a></li>
                 <?php endif; ?>    
