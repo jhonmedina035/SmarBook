@@ -127,25 +127,14 @@ class usuarios{
     }
     public static function insetarUsuario($foto_perfil,$nombre,$usuario,$clave_crypt,$ciudad,
         $profesion,$edad,$rol,$estado,$correo){
- 
-        
         $con=conexion();
-
-
         $instruccion="INSERT INTO usuarios (id_user,foto_perfil,nombre,usuario,clave,ciudad,profesion,edad,rol,id_estado,correo)VALUES (null,'$foto_perfil' ,'$nombre', '$usuario', '$clave_crypt', '$ciudad','$profesion','$edad', '$rol','$estado','$correo')";
         $consulta= mysqli_query($con,$instruccion)
         or die ("Fallo registrar un usuario ");
 
-     
-
         if($consulta){
             header("Location: administrador.php");
-
-
         }
-
-
-
     }
 
     public static function eliminarUsuario($id)
@@ -156,8 +145,6 @@ class usuarios{
 
         if($consulta){
             header("Location: administrador.php");
-
-
         }
 
     }
@@ -410,10 +397,8 @@ class amigos
         $con = conexion();
         $instruccion =("INSERT into amigos(id_amigo, user_enviador, user_receptor,status,solicitud) 
                            values(null,$user_enviador, $user_receptor,'', 1)");
-       $consulta = mysqli_query($con,$instruccion)
-       or die ("Fallo en la consulta ");
-
-                   
+        $consulta = mysqli_query($con,$instruccion)
+        or die ("Fallo en la consulta ");          
     }
 
     public static function verificar($user_enviador,$user_receptor)
@@ -425,6 +410,15 @@ class amigos
         or die ("Fallo en la consulta VERIFICAR AMIGO ");
         $resultado =$consulta->fetch_all();
         return $resultado;     
+    }
+
+    public static function eliminar ($user_enviador,$user_receptor)
+    {
+        $con = conexion();
+        $instruccion = ("DELETE FROM amigos where (user_enviador = $user_enviador and user_receptor =$user_receptor)or(user_enviador = $user_receptor and user_receptor = $user_enviador)");
+        $consulta = mysqli_query($con,$instruccion)
+        or die ("Fallo en la consulta eliminar AMIGO ");
+        
     }
     public static function codigos_amigos($id_user)
     {
