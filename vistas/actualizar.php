@@ -1,7 +1,8 @@
 <?php
 require('../controlador/funciones.php');
+if($_SESSION['rol']==1)
+{
 $con=conexion();
-
 $id=$_GET['id'];
 
 $instruccion="SELECT * FROM usuarios WHERE id_user='$id'";
@@ -43,3 +44,8 @@ $filas=mysqli_fetch_array($consulta);
     
 </body>
 </html>
+<?php
+}
+else{
+    header('location: home_2.php');
+}

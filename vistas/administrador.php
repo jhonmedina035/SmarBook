@@ -3,14 +3,14 @@
 require('../controlador/funciones.php');
 session_start();
 verificar_session();
+if($_SESSION['rol']==1)
+{
 $con= conexion();
 $instruccion = ("SELECT * FROM usuarios");
 $consulta= mysqli_query($con, $instruccion);
 $filas = mysqli_fetch_array($consulta);
-
-
 ?>
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -103,3 +103,9 @@ $filas = mysqli_fetch_array($consulta);
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="../vistas/js/prueba.js"></script>
 </html>
+<?php
+
+}
+else{
+    header('location: home_2.php');
+}

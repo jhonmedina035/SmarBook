@@ -111,7 +111,7 @@ if(!empty($amigos)){
             <div class="publi-info-perfil ">
                 <table>
                     <tr>
-                        <td><a href="#"><img src="img/logoEditado.png" alt="" class="publi-img-perfil"></a></td>
+                        <td><a href="#"><img src="img/libros.png" alt="" class="publi-img-perfil"></a></td>
                         <td><a href="#" id="nombre_usuario" class="nombre_usuario">Smart Book</a> </td>
                     </tr>
                 </table>
@@ -123,13 +123,13 @@ if(!empty($amigos)){
                 <div class="publi-info-perfil ">
                 <table>
                     <tr>
-                        <td><a href="#"><img src="img/logo" alt="" class="publi-img-perfil"></a></td>
+                        <td><a href="#"><img src="img/libros.png" alt="" class="publi-img-perfil"></a></td>
                         <td><a href="#" id="nombre_usuario" class="nombre_usuario">Smart Book</a> </td>
                     </tr>
                 </table>
             </div >
                 <div class="publi-thumb">
-                    <img src="img/img_bienbenida_1.jpeg"> 
+                    <img src="img/final.png"> 
                 </div>
                     
         <?php endif ?>       

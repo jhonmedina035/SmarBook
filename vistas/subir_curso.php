@@ -29,6 +29,7 @@ if(isset($_POST['crear_contenido']) and !empty($_FILES) and !empty($_POST['conte
 }
 
 ?>
+
 <h2 style="margin-bottom: 0.5em;" class="titulo_curso">Crear un curso</h2>
 
 <div class="publicaciones" style="margin-bottom:2em;">
