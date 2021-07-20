@@ -37,13 +37,13 @@ if(isset($_POST['editar']))
 
     </div>
     <div class="form_editar">
-        <h2 class="titulo_editar">Editar perfil</h2>
+        <h2 class="titulo_editar">Editar perfil </h2>
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" enctype="multipart/form-data" method ="post">
             <input type="text" name="nombre" class="form-control mb-3" value="<?php echo $usuario['nombre']; ?>">
             <input type="text" name="correo" class="form-control mb-3" value="<?php echo $usuario['correo']; ?>">
             <input type="text" name="profesion" class="form-control mb-3" value="<?php echo $usuario['profesion']; ?>">
             <input type="text" name="ciudad" class="form-control mb-3" value="<?php echo $usuario['ciudad']; ?>">
-            <input type="file"name="foto" >
+            <input type="file"name="foto" class="form-control mb-3" value="Carga tu foto">
             <input type="submit" value="Editar" name="editar" id="botonn"class="btn ">
         </form>
         <div class="Registrar">
