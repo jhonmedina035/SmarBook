@@ -39,22 +39,23 @@ const swalWithBootstrapButtons = Swal.mixin({
 				if (result.isConfirmed) {
 				  swalWithBootstrapButtons.fire(
                     
-					'Puede montar el curso',
+					'Bienbenido a Smart Book',
 					'haz acetado los terminos y condiciones',
 					'success' )
                     .then(()=>{
-					window.location=('subir_curso.php');
+					
+					window.location=('terminos.php');
 				  });
 				} else if (
 				  /* Read more about handling dismissals below */
 				  result.dismiss === Swal.DismissReason.cancel
 				) {
 				  swalWithBootstrapButtons.fire(
-					'No podrás montar cursos',
+					'Condicion no aseptada asta la proxima',
 					'',
 					'warning')
                   .then(()=>{
-					window.location=('home_2.php');
+					window.location=('../controlador/cerrar_session.php');
 				  });
 				}
 			  })

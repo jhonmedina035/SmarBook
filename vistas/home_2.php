@@ -15,6 +15,11 @@ if(isset($_POST['crear_contenido']) and !empty($_FILES) and !empty($_POST['conte
     header('location: home_2.php');
 }
 
+$nuevo = usuarios :: verificarNuevo($_SESSION['id_user']);
+
+if(!empty($nuevo)){
+    require('pruebaAlerta.php');
+}
 require('publicacionesGeneral.php');
 
 

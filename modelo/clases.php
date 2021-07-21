@@ -125,6 +125,8 @@ class usuarios{
         or die ("Fallo registrar un usuario ");
         
     }
+
+
     public static function insetarUsuario($foto_perfil,$nombre,$usuario,$clave_crypt,$ciudad,
         $profesion,$edad,$rol,$estado,$correo){
         $con=conexion();
@@ -158,6 +160,25 @@ class usuarios{
         or die ("Fallo en la consulta verificar");
         $nfilas =mysqli_fetch_array($consulta);
         return $nfilas;
+    } 
+
+    public static function verificarNuevo($id_user)
+    {
+        $con = conexion();
+        $instruccion =("SELECT * FROM usuarios WHERE id_user = '$id_user' and id_estado = 4 ");
+        $consulta = mysqli_query($con,$instruccion)
+        or die ("Fallo en la consulta verificar nuevo");
+        $nfilas =mysqli_fetch_array($consulta);
+        return $nfilas;
+    } 
+
+    public static function quitar_nuevo($id_user)
+    {
+        $con = conexion();
+        $instruccion =("UPDATE usuarios set id_estado = 1 where id_user = '$id_user'");
+        $consulta = mysqli_query($con,$instruccion)
+        or die ("Fallo en la consulta verificar");
+        
     } 
 
     public static function verificarCorreo($correo)
@@ -196,8 +217,6 @@ class usuarios{
 
         $consulta = mysqli_query($con,$instruccion)
         or die ("Fallo en la consulta verificar");             
-
-
     }
     
     public static function usuario_por_codigo($id_user)
