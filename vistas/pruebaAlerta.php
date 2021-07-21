@@ -39,7 +39,7 @@ const swalWithBootstrapButtons = Swal.mixin({
 				if (result.isConfirmed) {
 				  swalWithBootstrapButtons.fire(
                     
-					'Bienbenido a Smart Book',
+					'Bienvenido a Smart Book',
 					'haz acetado los terminos y condiciones',
 					'success' )
                     .then(()=>{
@@ -51,7 +51,7 @@ const swalWithBootstrapButtons = Swal.mixin({
 				  result.dismiss === Swal.DismissReason.cancel
 				) {
 				  swalWithBootstrapButtons.fire(
-					'Condicion no aseptada asta la proxima',
+					'Condición no aceptada hasta la proxima!!',
 					'',
 					'warning')
                   .then(()=>{
