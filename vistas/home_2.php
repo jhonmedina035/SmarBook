@@ -20,6 +20,8 @@ $nuevo = usuarios :: verificarNuevo($_SESSION['id_user']);
 if(!empty($nuevo)){
     require('pruebaAlerta.php');
 }
+
+
 require('publicacionesGeneral.php');
 
 

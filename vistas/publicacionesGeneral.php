@@ -35,7 +35,7 @@ if(!empty($amigos)){
             $misAmigos[] = $a[2];
         }
     }
-
+    
     foreach($misAmigos as $item){
         $curso = Cursos :: mostrar_cursos($item);
         foreach($curso as $c){

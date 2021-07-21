@@ -116,7 +116,7 @@ class usuarios{
         // datos por defecto 
         $foto_perfil = "img/img_sin_foto_perfil.jpg";
         $rol = 2;
-        $estado = 1; 
+        $estado = 4; 
 
         
         $instruccion ="INSERT INTO usuarios(id_user,foto_perfil,nombre,usuario,clave,ciudad,profesion,edad,rol,id_estado,correo) 
